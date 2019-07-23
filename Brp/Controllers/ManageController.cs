@@ -26,6 +26,11 @@ namespace Brp.Controllers
             SignInManager = signInManager;
         }
 
+        public ActionResult Login()
+        {
+            return View();
+        }
+
         public ApplicationSignInManager SignInManager
         {
             get
@@ -42,6 +47,7 @@ namespace Brp.Controllers
         {
             get
             {
+
                 return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
             }
             private set

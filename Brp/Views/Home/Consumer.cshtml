@@ -1,4 +1,4 @@
-﻿@model List<Brp.Models.ConsumerResponse>
+﻿@model Brp.Models.ConsumerResponse
 
 @{
     ViewBag.Title = "Consumer";
@@ -6,22 +6,38 @@
 
 <h2>Consumer</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
 <table class="table">
     <tr>
-        <th></th>
+        <th>Consumer Id</th>
+        <th>ConsumerName</th>
+        <th>Email</th>
+        <th>DemoInfoReceived</th>
+        <th>RedirectComplete</th>
+        <th>BankInfoReceived</th>
+        <th>IdentityCheckComplete</th>
+        <th>LastUpdate</th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model.ConsumerStates)
+    {
+
+        <tr>
+            <td>@item.ConsumerId</td>
+            <td>@item.ConsumerName</td>
+            <td>@item.Email</td>
+            <td>@item.DemoInfoReceived</td>
+            <td>@item.RedirectComplete</td>
+            <td>@item.BankInfoReceived</td>
+            <td>@item.IdentityCheckComplete</td>
+            <td>@item.LastUpdate</td>
+            <td></td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
 
 </table>
