@@ -126,7 +126,7 @@ namespace Brp.Controllers
 
             if (!authResult.IsSuccessful)
             {
-                return Redirect(Url.Action("Account", "Login"));
+                return Redirect(Url.Action("ConsumerSummary", "Enrollment"));
             }
 
             // User has logged in with provider successfully
@@ -135,7 +135,7 @@ namespace Brp.Controllers
             if (OpenAuth.Login(authResult.Provider, authResult.ProviderUserId, createPersistentCookie: false))
             {
                 //return Redirect(Url.Action("Contact", "Home"));
-                return Redirect("~/HtmlPage1.html");
+                return Redirect(Url.Action("ConsumerSummary", "Enrollment"));
             }
 
             //Get provider user details
@@ -153,7 +153,7 @@ namespace Brp.Controllers
                 // User is already authenticated, add the external login and redirect to return url
                 OpenAuth.AddAccountToExistingUser(ProviderName, ProviderUserId, ProviderUserName, User.Identity.Name);
                 //return Redirect(Url.Action("Contact", "Home"));
-                return Redirect("~/HtmlPage1.html");
+                return Redirect(Url.Action("ConsumerSummary", "Enrollment"));
                 //return Redirect(Url.Action("Index", "Home"));
             }
             else
@@ -173,7 +173,7 @@ namespace Brp.Controllers
                     if (OpenAuth.Login(ProviderName, ProviderUserId, createPersistentCookie: false))
                     {
                         //return Redirect(Url.Action("Contact", "Home"));
-                        return Redirect("~/HtmlPage1.html");
+                        return Redirect(Url.Action("ConsumerSummary", "Enrollment"));
                     }
                 }
             }

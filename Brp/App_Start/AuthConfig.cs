@@ -11,7 +11,7 @@ namespace Brp.App_Start
     {
         public static void RegisterAuth()
         {
-            GoogleOAuth2Client clientGoog = new GoogleOAuth2Client("1013728909295-q1tl37cc0h86f94hfs3nimg293dmkucr.apps.googleusercontent.com", "sxcWMdVFXhLJO8cy-V4V-6lY");
+            GoogleOAuth2Client clientGoog = new GoogleOAuth2Client("558912218487-hqcgt1f1fkl1dv5duuu6vq7sprv6pha4.apps.googleusercontent.com", "6aaWF-jE6lMJmnlVMhvUMVZj");
             IDictionary<string, string> extraData = new Dictionary<string, string>();
             OpenAuth.AuthenticationClients.Add("google", () => clientGoog, extraData);
         }
