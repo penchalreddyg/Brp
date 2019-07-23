@@ -14,5 +14,10 @@ namespace Brp.Controllers
             return View();
         }
 
+        public ActionResult ConsumerSummary()
+        {
+            return View();
+        }
+
     }
 }
