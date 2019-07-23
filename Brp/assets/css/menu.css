@@ -52,26 +52,26 @@
 	text-align: left;
 }
 .user-panel > .info > p {
-	font-weight: 600;
-	/*color: #222;*/
-	color: #ffffff;
-	font-size:16px;
-	white-space: nowrap;
-	margin-bottom: 0;
-	text-overflow: ellipsis;
-	line-height: 1.5;
+    font-weight: 600;
+    color: #222;
+    /*color: #ffffff;*/
+    font-size: 16px;
+    white-space: nowrap;
+    margin-bottom: 0;
+    text-overflow: ellipsis;
+    line-height: 1.5;
 }
 .user-panel > .info > a {
-	text-decoration: none;
-	font-size: 11px;
-	/*color: #222;*/
-	color: #ffffff;
+    text-decoration: none;
+    font-size: 11px;
+    color: #222;
+    /*color: #ffffff;*/
 }
 .sidebar-menu {
 	margin: 0px;
 	/*padding:0px 15px;*/
-	padding:0px;
-}
+        padding: 0px;
+    }
 .sidebar-menu li .badge {
 	color: #fff !important;
 	position: relative;
@@ -303,4 +303,7 @@
 	.mobile_nav .side_bar {
 		margin-left: 0;
 	}
+}
+.clr-w{
+    color:#fff !important;
 }
