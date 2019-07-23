@@ -33,7 +33,7 @@ namespace Brp.Controllers
 
         }
 
-        public  ActionResult Consumer()
+        public ActionResult Consumer()
         {
             try
             {
@@ -46,14 +46,14 @@ namespace Brp.Controllers
                 objReq.PassPort = new Passport { PassKey = "BIMInsightsQA", PassPhrase = "5E758B95-FC80-414A-AA20-493DB315B90C" };
                 var url = "api/EnrollmentServices/ConsumerStates";
                 response = new ServiceClient().RunGetAsync<ConsumerRequest, ConsumerResponse>(objReq, url);
-                return View(response);
+                return View("Consumer", response);
             }
             catch (Exception ex)
             {
 
                 throw ex;
             }
-           
+
         }
 
         public ActionResult About()

@@ -1,0 +1,114 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login</title>
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet" type="text/css" />
+    <link href="~/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/css/ionicons.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/css/simple-line-icons.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/css/themify-icons.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/css/jquery.mCustomScrollbar.css" rel="stylesheet">
+    <link href="~/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/assets/js/bootstrap.min.js"></script>
+    <link href="~/assets/css/style.css" rel="stylesheet">
+    <link href="~/assets/css/header.css" rel="stylesheet">
+    <link href="~/assets/css/menu.css" rel="stylesheet">
+    <link href="~/assets/css/index.css" rel="stylesheet">
+    <link href="~/assets/css/responsive.css" rel="stylesheet">
+    <!--Start Functionality-->
+    <script src="~/assets/js/jquery.min.js"></script>
+    <script src="~/assets/js/jquery-Session.js"></script>
+    <script src="~/assets/js/jquery.maskedinput.js"></script>
+    <script src="~/Scripts/Pages/Login.js" type="text/javascript"></script>
+    <script src="~/Scripts/Pages/SystemsConstants.js"></script>
+
+    <script type="text/javascript">
+        /*Start -Disable back button on load event*/
+        window.history.forward();
+        function noBack() { window.history.forward(); }
+        setTimeout("noBack()", 0);
+        window.onunload = function () { null };
+            /*End -Disable back button on load event*/
+    </script>
+</head>
+
+<body class="bg_darck">
+    <div class="sufee-login d-flex align-content-center flex-wrap">
+        <div class="container">
+            <div class="login-content">
+                <div class="logo animation-fadeInQuickInv">
+                    <a href="#">
+                        <strong class="logo_icon">
+                            <img alt="" src="assets/images/logo.png">
+                        </strong>
+                        <span class="logo-default">
+                            <img alt="" src="assets/images/logo.png">
+                        </span>
+                    </a>
+                </div>
+                <div class="login-form animation-fadeInQuickInv">
+                    <form id="Form-Login">
+                        <div class="form-group">
+                            <label>Username</label>
+                            <input type="email" name="txtEmail" id="txtEmail" class="form-control" placeholder="Enter Username">
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" name="txtPassword" id="txtPassword" class="form-control" placeholder="Enter Password">
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"> Remember Me
+                            </label>
+                            <label class="pull-right">
+                                <a href="Recover.html">Forgotten Password?</a>
+                            </label>
+                        </div>
+                        <button type="button" class="btn btn-primary btn-flat m-b-30 m-t-30" id="btnSignin">Sign in</button>
+                        <div class="social-login-content">
+                            <div class="social-button">
+                                <button type="button" class="btn social google btn-flat btn-addon mb-1">
+                                    <i class="fa fa-google"></i>Sign in with Google
+                                </button>
+                                <!--<button type="button" class="btn social facebook btn-flat btn-addon mt-1">
+                                    <i class="fa fa-facebook"></i>Sign in with facebook
+                                </button>-->
+                            </div>
+                        </div>
+                        <div class="register-link m-t-15 text-center">
+                            <p>
+                                Don't have account ?
+                                <a href="Register.html"> Sign Up Here</a>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- panel -->
+    <div class="alert animation-fadeInRight SVCE_alert" style="display: none;" id="error">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <p id="errormessage"></p>
+    </div>
+    <script src="assets/js/jquery.validate.js"></script>
+    <script type="text/javascript" src="assets/js/popper.min.js"></script>
+    <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
+
+    <script src="assets/js/custom.js" type="text/javascript"></script>
+</body>
+
+</html>
