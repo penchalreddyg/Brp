@@ -310,6 +310,11 @@
     <Content Include="assets\js\jquery.validate.js" />
     <Content Include="assets\js\popper.min.js" />
     <Content Include="assets\js\tables.js" />
+    <Content Include="assets\Scripts\Login.js" />
+    <Content Include="assets\Scripts\Logout.js" />
+    <Content Include="assets\Scripts\RecoverPassword.js" />
+    <Content Include="assets\Scripts\Register.js" />
+    <Content Include="assets\Scripts\SystemsConstants.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
