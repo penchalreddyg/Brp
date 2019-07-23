@@ -1,7 +1,11 @@
 ﻿
+@using Brp.Models
+@model Brp.Models.ConsumerResponse
 @{
     ViewBag.Title = "- ConsumerSummary";
 }
+
+
 
 <!--page title start-->
 <div class="page-heading">
@@ -18,7 +22,7 @@
                     <ol class="breadcrumb">
                         <li>
                             <i class="fa fa-home"></i>
-                            <a class="parent-item" href="Dashboard.html">Home</a>
+                            <a class="parent-item" href="javascript:void(0);">Home</a>
                             <i class="fa fa-angle-right"></i>
                         </li>
                         <li class="active">
@@ -42,441 +46,45 @@
                     </div>
                 </div>
                 <div class="card-body">
+                    <div id="detailedTable1"></div>
                     <table id="detailedTable" class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>ID</th>
-                                <th>Partner</th>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Registered</th>
-                                <th>Demo</th>
-                                <th>Redirect</th>
-                                <th>Bank Info Received</th>
-                                <th>Identity Check</th>
-                                <th>Last Update</th>
-                                <th>Actions</th>
+                                <td>Partner Id</td>
+                                <td>Consumer Id</td>
+                                <td>Email</td>
+                                <td>Identity Check Complete</td>
+                                <td>Redirect Complete</td>
+                                <td>Registered</td>
+                                <td>Last Update</td>
                             </tr>
                             <tr>
-                                <td>ID</td>
-                                <td>Partner</td>
-                                <td>Name</td>
-                                <td>Email</td>
-                                <td>Registered</td>
-                                <td>Demo</td>
-                                <td>Redirect</td>
-                                <td>Bank Info Received</td>
-                                <td>Identity Check</td>
-                                <td>Last Update</td>
-                                <td>Actions</td>
+                                <th>Partner Id</th>
+                                <th>Consumer Id</th>
+                                <th>Email</th>
+                                <th>Identity Check Complete</th>
+                                <th>Redirect Complete</th>
+                                <th>Registered</th>
+                                <th>Last Update</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <!--<tr>
-                                <td><a href="javascript:void(0);" data-toggle="modal" data-target="#exampleModal">4286</a></td>
-                                <td>127</td>
-                                <td>Alberta Charleson</td>
-                                <td>dhana0988015@hepgui.com</td>
-                                <td>Registered</td>
-                               <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                               <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                               <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                               <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td>10/29/2018 04:12:49</td>
-                                <td><i class="fa fa-power-off error" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Block"></i> / <i class="fa fa-exclamation-triangle has-warning" data-toggle="tooltip" data-placement="top" title="" data-original-title="Suspend"></i></td>
-                            </tr>-->
-                            <tr>
-                                <td><a href="javascript:void(0);" data-toggle="modal" data-target="#exampleModal">4290</a></td>
-                                <td>127</td>
-                                <td>Edward Harris</td>
-                                <td>harrisedward@hepgui.com</td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td>7/17/2019 9:45</td>
-                                <td><i class="fa fa-power-off error" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Block"></i> / <i class="fa fa-exclamation-triangle has-warning" data-toggle="tooltip" data-placement="top" title="" data-original-title="Suspend"></i></td>
-                            </tr>
-                            <tr>
-                                <td><a href="javascript:void(0);" data-toggle="modal" data-target="#exampleModal">4289</a></td>
-                                <td>127</td>
-                                <td>JasonPrince</td>
-                                <td>jasonprince@postman.com</td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-times error trf" data-toggle="tooltip" data-placement="left" title="" data-original-title="False"></i></td>
-                                <td><i class="fa fa-times error trf" data-toggle="tooltip" data-placement="left" title="" data-original-title="False"></i></td>
-                                <td><i class="fa fa-times error trf" data-toggle="tooltip" data-placement="left" title="" data-original-title="False"></i></td>
-                                <td><i class="fa fa-times error trf" data-toggle="tooltip" data-placement="left" title="" data-original-title="False"></i></td>
-                                <td>7/17/2019 9:45</td>
-                                <td><i class="fa fa-power-off error" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Block"></i> / <i class="fa fa-exclamation-triangle has-warning" data-toggle="tooltip" data-placement="top" title="" data-original-title="Suspend"></i></td>
-                            </tr>
-                            <tr>
-                                <td><a href="javascript:void(0);" data-toggle="modal" data-target="#exampleModal">4288</a></td>
-                                <td>127</td>
-                                <td>SoniaClark</td>
-                                <td>soniaclark@postman.com</td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-times error trf" data-toggle="tooltip" data-placement="left" title="" data-original-title="False"></i></td>
-                                <td><i class="fa fa-times error trf" data-toggle="tooltip" data-placement="left" title="" data-original-title="False"></i></td>
-                                <td><i class="fa fa-times error trf" data-toggle="tooltip" data-placement="left" title="" data-original-title="False"></i></td>
-                                <td><i class="fa fa-times error trf" data-toggle="tooltip" data-placement="left" title="" data-original-title="False"></i></td>
-                                <td>7/17/2019 9:45</td>
-                                <td><i class="fa fa-power-off error" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Block"></i> / <i class="fa fa-exclamation-triangle has-warning" data-toggle="tooltip" data-placement="top" title="" data-original-title="Suspend"></i></td>
-                            </tr>
-                            <tr>
-                                <td><a href="javascript:void(0);" data-toggle="modal" data-target="#exampleModal">4287</a></td>
-                                <td>127</td>
-                                <td>Haylie Morgan</td>
-                                <td>morgan@hepgui.com</td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td>7/17/2019 11:25</td>
-                                <td><i class="fa fa-power-off error" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Block"></i> / <i class="fa fa-exclamation-triangle has-warning" data-toggle="tooltip" data-placement="top" title="" data-original-title="Suspend"></i></td>
-                            </tr>
-                            <tr>
-                                <td><a href="javascript:void(0);" data-toggle="modal" data-target="#exampleModal">4286</a></td>
-                                <td>127</td>
-                                <td>Alberta Charleson</td>
-                                <td>dhana0988015@hepgui.com</td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td>7/16/2019 5:56</td>
-                                <td><i class="fa fa-power-off error" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Block"></i> / <i class="fa fa-exclamation-triangle has-warning" data-toggle="tooltip" data-placement="top" title="" data-original-title="Suspend"></i></td>
-                            </tr>
-                            <tr>
-                                <td><a href="javascript:void(0);" data-toggle="modal" data-target="#exampleModal">4285</a></td>
-                                <td>127</td>
-                                <td>Ray Hicks</td>
-                                <td>wolfe@1test.com</td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td>7/16/2019 10:31</td>
-                                <td><i class="fa fa-power-off error" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Block"></i> / <i class="fa fa-exclamation-triangle has-warning" data-toggle="tooltip" data-placement="top" title="" data-original-title="Suspend"></i></td>
-                            </tr>
-                            <tr>
-                                <td><a href="javascript:void(0);" data-toggle="modal" data-target="#exampleModal">4284</a></td>
-                                <td>127</td>
-                                <td>Alberta Charleson</td>
-                                <td>dhana98015@hepgui.com</td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td>7/15/2019 12:57</td>
-                                <td><i class="fa fa-power-off error" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Block"></i> / <i class="fa fa-exclamation-triangle has-warning" data-toggle="tooltip" data-placement="top" title="" data-original-title="Suspend"></i></td>
-                            </tr>
-                            <tr>
-                                <td><a href="javascript:void(0);" data-toggle="modal" data-target="#exampleModal">4283</a></td>
-                                <td>127</td>
-                                <td>dhana lakshmi</td>
-                                <td>dhana276376@hepgui.com</td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td>7/15/2019 9:58</td>
-                                <td><i class="fa fa-power-off error" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Block"></i> / <i class="fa fa-exclamation-triangle has-warning" data-toggle="tooltip" data-placement="top" title="" data-original-title="Suspend"></i></td>
-                            </tr>
-                            <tr>
-                                <td><a href="javascript:void(0);" data-toggle="modal" data-target="#exampleModal">4282</a></td>
-                                <td>127</td>
-                                <td>dhana lakshmi</td>
-                                <td>dhana06540015@hepgui.com</td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td>7/15/2019 9:49</td>
-                                <td><i class="fa fa-power-off error" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Block"></i> / <i class="fa fa-exclamation-triangle has-warning" data-toggle="tooltip" data-placement="top" title="" data-original-title="Suspend"></i></td>
-                            </tr>
-                            <tr>
-                                <td><a href="javascript:void(0);" data-toggle="modal" data-target="#exampleModal">4281</a></td>
-                                <td>127</td>
-                                <td>dhana lakshmi</td>
-                                <td>dhana098715@hepgui.com</td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td>7/15/2019 9:47</td>
-                                <td><i class="fa fa-power-off error" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Block"></i> / <i class="fa fa-exclamation-triangle has-warning" data-toggle="tooltip" data-placement="top" title="" data-original-title="Suspend"></i></td>
-                            </tr>
+                        @foreach (var item in Model.ConsumerStates)
+                        {
 
                             <tr>
-                                <td><a href="javascript:void(0);" data-toggle="modal" data-target="#exampleModal">4280</a></td>
-                                <td>127</td>
-                                <td>dhana752015</td>
-                                <td>dhana752015@hepgui.com</td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-times error trf" data-toggle="tooltip" data-placement="left" title="" data-original-title="False"></i></td>
-                                <td><i class="fa fa-times error trf" data-toggle="tooltip" data-placement="left" title="" data-original-title="False"></i></td>
-                                <td><i class="fa fa-times error trf" data-toggle="tooltip" data-placement="left" title="" data-original-title="False"></i></td>
-                                <td><i class="fa fa-times error trf" data-toggle="tooltip" data-placement="left" title="" data-original-title="False"></i></td>
-                                <td>7/15/2019 9:47</td>
-                                <td><i class="fa fa-power-off error" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Block"></i> / <i class="fa fa-exclamation-triangle has-warning" data-toggle="tooltip" data-placement="top" title="" data-original-title="Suspend"></i></td>
+                                <td>@item.PartnerId </td>
+                                <td>
+                                    @item.ConsumerId<br />
+                                    @item.Email <br />
+                                    @item.IdentityCheckComplete <br />
+                                </td>
+                                <td>@item.PartnerId</td>
+                                <td>@item.RedirectComplete</td>
+                                <td>@item.Registered </td>
+                                <td>@item.LastUpdate</td>
+                                <td>@item.IdentityCheckComplete </td>
                             </tr>
-                            <tr>
-                                <td><a href="javascript:void(0);" data-toggle="modal" data-target="#exampleModal">4279</a></td>
-                                <td>127</td>
-                                <td>hudson</td>
-                                <td>hudson@postman.com</td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-times error trf" data-toggle="tooltip" data-placement="left" title="" data-original-title="False"></i></td>
-                                <td><i class="fa fa-times error trf" data-toggle="tooltip" data-placement="left" title="" data-original-title="False"></i></td>
-                                <td><i class="fa fa-times error trf" data-toggle="tooltip" data-placement="left" title="" data-original-title="False"></i></td>
-                                <td><i class="fa fa-times error trf" data-toggle="tooltip" data-placement="left" title="" data-original-title="False"></i></td>
-                                <td>7/15/2019 9:47</td>
-                                <td><i class="fa fa-power-off error" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Block"></i> / <i class="fa fa-exclamation-triangle has-warning" data-toggle="tooltip" data-placement="top" title="" data-original-title="Suspend"></i></td>
-                            </tr>
-                            <tr>
-                                <td><a href="javascript:void(0);" data-toggle="modal" data-target="#exampleModal">4278</a></td>
-                                <td>127</td>
-                                <td>Alberta Charleson</td>
-                                <td>alberta76600@hepgui.com</td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td>7/15/2019 9:21</td>
-                                <td><i class="fa fa-power-off error" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Block"></i> / <i class="fa fa-exclamation-triangle has-warning" data-toggle="tooltip" data-placement="top" title="" data-original-title="Suspend"></i></td>
-                            </tr>
-                            <tr>
-                                <td><a href="javascript:void(0);" data-toggle="modal" data-target="#exampleModal">4277</a></td>
-                                <td>127</td>
-                                <td>dhana lakshmi</td>
-                                <td>dhana0099015@hepgui.com</td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td>7/15/2019 9:19</td>
-                                <td><i class="fa fa-power-off error" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Block"></i> / <i class="fa fa-exclamation-triangle has-warning" data-toggle="tooltip" data-placement="top" title="" data-original-title="Suspend"></i></td>
-                            </tr>
-                            <tr>
-                                <td><a href="javascript:void(0);" data-toggle="modal" data-target="#exampleModal">4276</a></td>
-                                <td>127</td>
-                                <td>Prasad Papudesi</td>
-                                <td>nasen125@post.com</td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-times error trf" data-toggle="tooltip" data-placement="left" title="" data-original-title="False"></i></td>
-                                <td><i class="fa fa-times error trf" data-toggle="tooltip" data-placement="left" title="" data-original-title="False"></i></td>
-                                <td><i class="fa fa-times error trf" data-toggle="tooltip" data-placement="left" title="" data-original-title="False"></i></td>
-                                <td>7/15/2019 15:40</td>
-                                <td><i class="fa fa-power-off error" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Block"></i> / <i class="fa fa-exclamation-triangle has-warning" data-toggle="tooltip" data-placement="top" title="" data-original-title="Suspend"></i></td>
-                            </tr>
-                            <tr>
-                                <td><a href="javascript:void(0);" data-toggle="modal" data-target="#exampleModal">4275</a></td>
-                                <td>127</td>
-                                <td>Garry Richardson</td>
-                                <td>richardson@hepgui.com</td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td>7/15/2019 8:31</td>
-                                <td><i class="fa fa-power-off error" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Block"></i> / <i class="fa fa-exclamation-triangle has-warning" data-toggle="tooltip" data-placement="top" title="" data-original-title="Suspend"></i></td>
-                            </tr>
-                            <tr>
-                                <td><a href="javascript:void(0);" data-toggle="modal" data-target="#exampleModal">4274</a></td>
-                                <td>127</td>
-                                <td>needhi15</td>
-                                <td>needhi15@postman.com</td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-times error trf" data-toggle="tooltip" data-placement="left" title="" data-original-title="False"></i></td>
-                                <td><i class="fa fa-times error trf" data-toggle="tooltip" data-placement="left" title="" data-original-title="False"></i></td>
-                                <td><i class="fa fa-times error trf" data-toggle="tooltip" data-placement="left" title="" data-original-title="False"></i></td>
-                                <td><i class="fa fa-times error trf" data-toggle="tooltip" data-placement="left" title="" data-original-title="False"></i></td>
-                                <td>7/15/2019 8:31</td>
-                                <td><i class="fa fa-power-off error" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Block"></i> / <i class="fa fa-exclamation-triangle has-warning" data-toggle="tooltip" data-placement="top" title="" data-original-title="Suspend"></i></td>
-                            </tr>
-                            <tr>
-                                <td><a href="javascript:void(0);" data-toggle="modal" data-target="#exampleModal">4273</a></td>
-                                <td>127</td>
-                                <td>Elizabeth Brewer</td>
-                                <td>brewer@hepgui.com</td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td>7/15/2019 4:37</td>
-                                <td><i class="fa fa-power-off error" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Block"></i> / <i class="fa fa-exclamation-triangle has-warning" data-toggle="tooltip" data-placement="top" title="" data-original-title="Suspend"></i></td>
-                            </tr>
-                            <tr>
-                                <td><a href="javascript:void(0);" data-toggle="modal" data-target="#exampleModal">4272</a></td>
-                                <td>127</td>
-                                <td>Kirk Cousinb</td>
-                                <td>brewer@hepgui.com</td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-times error trf" data-toggle="tooltip" data-placement="left" title="" data-original-title="False"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-times error trf" data-toggle="tooltip" data-placement="left" title="" data-original-title="False"></i></td>
-                                <td>7/15/2019 4:46</td>
-                                <td><i class="fa fa-power-off error" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Block"></i> / <i class="fa fa-exclamation-triangle has-warning" data-toggle="tooltip" data-placement="top" title="" data-original-title="Suspend"></i></td>
-                            </tr>
-                            <tr>
-                                <td><a href="javascript:void(0);" data-toggle="modal" data-target="#exampleModal">4271</a></td>
-                                <td>127</td>
-                                <td>John Wayne</td>
-                                <td>jl.210001153@hepgui.com</td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td>7/12/2019 15:06</td>
-                                <td><i class="fa fa-power-off error" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Block"></i> / <i class="fa fa-exclamation-triangle has-warning" data-toggle="tooltip" data-placement="top" title="" data-original-title="Suspend"></i></td>
-                            </tr>
-                            <tr>
-                                <td><a href="javascript:void(0);" data-toggle="modal" data-target="#exampleModal">4270</a></td>
-                                <td>127</td>
-                                <td>Alberta  Charleson</td>
-                                <td>jl.210001152@hepgui.com</td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td>7/12/2019 15:04</td>
-                                <td><i class="fa fa-power-off error" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Block"></i> / <i class="fa fa-exclamation-triangle has-warning" data-toggle="tooltip" data-placement="top" title="" data-original-title="Suspend"></i></td>
-                            </tr>
-                            <tr>
-                                <td><a href="javascript:void(0);" data-toggle="modal" data-target="#exampleModal">4269</a></td>
-                                <td>127</td>
-                                <td>Alberta Charleson</td>
-                                <td>jl.210001151@hepgui.com</td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td>7/12/2019 15:02</td>
-                                <td><i class="fa fa-power-off error" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Block"></i> / <i class="fa fa-exclamation-triangle has-warning" data-toggle="tooltip" data-placement="top" title="" data-original-title="Suspend"></i></td>
-                            </tr>
-                            <tr>
-                                <td><a href="javascript:void(0);" data-toggle="modal" data-target="#exampleModal">4268</a></td>
-                                <td>127</td>
-                                <td>John Wayne</td>
-                                <td>jl.210001150@hepgui.com</td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td>7/12/2019 14:53</td>
-                                <td><i class="fa fa-power-off error" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Block"></i> / <i class="fa fa-exclamation-triangle has-warning" data-toggle="tooltip" data-placement="top" title="" data-original-title="Suspend"></i></td>
-                            </tr>
-                            <tr>
-                                <td><a href="javascript:void(0);" data-toggle="modal" data-target="#exampleModal">4267</a></td>
-                                <td>127</td>
-                                <td>Alberta Charleson</td>
-                                <td>jl.210001149@hepgui.com</td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td>7/12/2019 14:49</td>
-                                <td><i class="fa fa-power-off error" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Block"></i> / <i class="fa fa-exclamation-triangle has-warning" data-toggle="tooltip" data-placement="top" title="" data-original-title="Suspend"></i></td>
-                            </tr>
-                            <tr>
-                                <td><a href="javascript:void(0);" data-toggle="modal" data-target="#exampleModal">4266</a></td>
-                                <td>127</td>
-                                <td>Kirk  Harris</td>
-                                <td>harris@hepgui.com</td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-times error trf" data-toggle="tooltip" data-placement="left" title="" data-original-title="False"></i></td>
-                                <td><i class="fa fa-times error trf" data-toggle="tooltip" data-placement="left" title="" data-original-title="False"></i></td>
-                                <td><i class="fa fa-times error trf" data-toggle="tooltip" data-placement="left" title="" data-original-title="False"></i></td>
-                                <td>7/12/2019 9:49</td>
-                                <td><i class="fa fa-power-off error" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Block"></i> / <i class="fa fa-exclamation-triangle has-warning" data-toggle="tooltip" data-placement="top" title="" data-original-title="Suspend"></i></td>
-                            </tr>
-                            <tr>
-                                <td><a href="javascript:void(0);" data-toggle="modal" data-target="#exampleModal">4265</a></td>
-                                <td>127</td>
-                                <td>Ramona  Nunez</td>
-                                <td>nunez@hepgui.com</td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td>7/12/2019 9:37</td>
-                                <td><i class="fa fa-power-off error" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Block"></i> / <i class="fa fa-exclamation-triangle has-warning" data-toggle="tooltip" data-placement="top" title="" data-original-title="Suspend"></i></td>
-                            </tr>
-                            <tr>
-                                <td><a href="javascript:void(0);" data-toggle="modal" data-target="#exampleModal">4264</a></td>
-                                <td>127</td>
-                                <td>Cortney Westbrooks</td>
-                                <td>jennifernew1219johnson@teleworm.us</td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-times error trf" data-toggle="tooltip" data-placement="left" title="" data-original-title="False"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-times error trf" data-toggle="tooltip" data-placement="left" title="" data-original-title="False"></i></td>
-                                <td>7/12/2019 8:48</td>
-                                <td><i class="fa fa-power-off error" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Block"></i> / <i class="fa fa-exclamation-triangle has-warning" data-toggle="tooltip" data-placement="top" title="" data-original-title="Suspend"></i></td>
-                            </tr>
-                            <tr>
-                                <td><a href="javascript:void(0);" data-toggle="modal" data-target="#exampleModal">4263</a></td>
-                                <td>127</td>
-                                <td>Alberta Charleson</td>
-                                <td>accountholder1231@example.com</td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-times error trf" data-toggle="tooltip" data-placement="left" title="" data-original-title="False"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td>7/12/2019 16:02</td>
-                                <td><i class="fa fa-power-off error" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Block"></i> / <i class="fa fa-exclamation-triangle has-warning" data-toggle="tooltip" data-placement="top" title="" data-original-title="Suspend"></i></td>
-                            </tr>
-                            <tr>
-                                <td><a href="javascript:void(0);" data-toggle="modal" data-target="#exampleModal">4262</a></td>
-                                <td>127</td>
-                                <td>Alberta  Charleson</td>
-                                <td>accountholder1@example.com</td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td>7/12/2019 13:28</td>
-                                <td><i class="fa fa-power-off error" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Block"></i> / <i class="fa fa-exclamation-triangle has-warning" data-toggle="tooltip" data-placement="top" title="" data-original-title="Suspend"></i></td>
-                            </tr>
-                            <tr>
-                                <td><a href="javascript:void(0);" data-toggle="modal" data-target="#exampleModal">4261</a></td>
-                                <td>127</td>
-                                <td>Alberta  Charleson</td>
-                                <td>accountholder0@example.com</td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-times error trf" data-toggle="tooltip" data-placement="left" title="" data-original-title="False"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td><i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i></td>
-                                <td>7/12/2019 12:21</td>
-                                <td><i class="fa fa-power-off error" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Block"></i> / <i class="fa fa-exclamation-triangle has-warning" data-toggle="tooltip" data-placement="top" title="" data-original-title="Suspend"></i></td>
-                            </tr>
-                        </tbody>
+                        }
                         <!--<tfoot>
                             <tr>
                                 <th>Name</th>
@@ -559,28 +167,30 @@
         </div>
     </div>
 </div>
+
+
 <!-- Modal Ends -->
-    <!--<script>
-        $(document).ready(function() {
-            // Setup - add a text input to each footer cell
-            $('#detailedTable thead th').each( function () {
-                var title = $('#detailedTable tfoot th').eq( $(this).index() ).text();
-                var title = $(this).text();
-                $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
-            } );
-
-            // DataTable
-            var table = $('#detailedTable').DataTable();
-
-            // Apply the search
-            table.columns().eq( 0 ).each( function ( colIdx ) {
-                $( 'input', table.column( colIdx ).header() ).on( 'keyup change', function () {
-                    table
-                        .column( colIdx )
-                        .search( this.value )
-                        .draw();
-                } );
-            } );
+<!--<script>
+    $(document).ready(function() {
+        // Setup - add a text input to each footer cell
+        $('#detailedTable thead th').each( function () {
+            var title = $('#detailedTable tfoot th').eq( $(this).index() ).text();
+            var title = $(this).text();
+            $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
         } );
 
-    </script>-->
+        // DataTable
+        var table = $('#detailedTable').DataTable();
+
+        // Apply the search
+        table.columns().eq( 0 ).each( function ( colIdx ) {
+            $( 'input', table.column( colIdx ).header() ).on( 'keyup change', function () {
+                table
+                    .column( colIdx )
+                    .search( this.value )
+                    .draw();
+            } );
+        } );
+    } );
+
+</script>-->
