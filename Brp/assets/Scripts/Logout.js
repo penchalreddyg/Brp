@@ -10,5 +10,5 @@ Author URI: http://connexinfo.com
 $(document).ready(function () {
 
     $.session.clear();
-    window.location = "Login.html";
+    window.location = "Login";
 });

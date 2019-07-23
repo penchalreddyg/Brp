@@ -13,6 +13,18 @@ namespace Brp.Controllers
         {
             return View();
         }
+        public ActionResult Logout()
+        {
+            return View();
+        }
+        public ActionResult Recover()
+        {
+            return View();
+        }
+        public ActionResult Register()
+        {
+            return View();
+        }
 
         public ActionResult ConsumerSummary()
         {
