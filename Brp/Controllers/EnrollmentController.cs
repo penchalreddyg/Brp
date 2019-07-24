@@ -39,7 +39,7 @@ namespace Brp.Controllers
                 objReq.ServiceId = 1400;
                 objReq.PassPort = new Passport { PassKey = "BIMInsightsQA", PassPhrase = "5E758B95-FC80-414A-AA20-493DB315B90C" };
                 var url = "api/EnrollmentServices/ConsumerStates";
-                response = new ServiceClient().RunGetAsync<ConsumerRequest, ConsumerResponse>(objReq, url);
+                response = new ServiceClient().RunPut<ConsumerRequest, ConsumerResponse>(objReq, url);
                 return View("ConsumerSummary", response);
             }
             catch (Exception ex)

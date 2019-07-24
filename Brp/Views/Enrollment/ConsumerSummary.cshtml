@@ -6,6 +6,29 @@
 }
 
 
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#detailedTable tbody td ").each(function () {
+
+            if ($(this).text() == 'True') {
+                $(this).html('<i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i>');
+            }
+            else if ($(this).text() == 'False') {
+                $(this).html('<i class="fa fa-times error trf" data-toggle="tooltip" data-placement="left" title="" data-original-title="False"></i>');
+            }
+
+
+        });
+        //$('#detailedTable tr td').filter(function () {
+        //    return $(this).text().indexOf('True') === 0;
+        //}).closest('td').addClass('fa fa-check has-success trf');
+
+        //$('#detailedTable tr  td').filter(function () {
+        //    return $(this).text().indexOf('False') === 0;
+        //}).closest('td').addClass('fa fa-times error trf');
+    });
+</script>
 
 <!--page title start-->
 <div class="page-heading">
@@ -22,7 +45,7 @@
                     <ol class="breadcrumb">
                         <li>
                             <i class="fa fa-home"></i>
-                            <a class="parent-item" href="javascript:void(0);">Home</a>
+                            <a class="parent-item" href="Dashboard.html">Home</a>
                             <i class="fa fa-angle-right"></i>
                         </li>
                         <li class="active">
@@ -52,19 +75,26 @@
                             <tr>
                                 <td>Partner Id</td>
                                 <td>Consumer Id</td>
+                                <td>Consumer Name</td>
                                 <td>Email</td>
-                                <td>Identity Check Complete</td>
-                                <td>Redirect Complete</td>
                                 <td>Registered</td>
+                                <td>Demo Info Received </td>
+                                <td>Redirect Complete</td>
+                                <td>Bank Info Received</td>
+                                <td>Identity Check Complete</td>
                                 <td>Last Update</td>
+
                             </tr>
                             <tr>
                                 <th>Partner Id</th>
                                 <th>Consumer Id</th>
+                                <th>Consumer Name</th>
                                 <th>Email</th>
-                                <th>Identity Check Complete</th>
-                                <th>Redirect Complete</th>
                                 <th>Registered</th>
+                                <th>Demo Info Received </th>
+                                <th>Redirect Complete</th>
+                                <th>Bank Info Received</th>
+                                <th>Identity Check Complete</th>
                                 <th>Last Update</th>
                             </tr>
                         </thead>
@@ -73,16 +103,15 @@
 
                             <tr>
                                 <td>@item.PartnerId </td>
-                                <td>
-                                    @item.ConsumerId<br />
-                                    @item.Email <br />
-                                    @item.IdentityCheckComplete <br />
-                                </td>
-                                <td>@item.PartnerId</td>
+                                <td>@item.ConsumerId</td>
+                                <td>@item.ConsumerName</td>
+                                <td>@item.Email </td>
+                                <td >@item.Registered </td>
+                                <td>@item.DemoInfoReceived </td>
                                 <td>@item.RedirectComplete</td>
-                                <td>@item.Registered </td>
-                                <td>@item.LastUpdate</td>
+                                <td>@item.BankInfoReceived</td>
                                 <td>@item.IdentityCheckComplete </td>
+                                <td>@item.LastUpdate</td>
                             </tr>
                         }
                         <!--<tfoot>

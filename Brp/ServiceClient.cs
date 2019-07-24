@@ -27,7 +27,7 @@ namespace Brp
 
         }
 
-        public ResponseT RunGetAsync<RequestT, ResponseT>(RequestT request, string url)
+        public ResponseT RunPut<RequestT, ResponseT>(RequestT request, string url)
         {
             try
             {
