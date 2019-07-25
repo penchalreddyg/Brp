@@ -1,0 +1,223 @@
+﻿
+@{
+    ViewBag.Title = "AddConsumer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<!--page title start-->
+<div class="page-heading">
+    <div class="container-fluid">
+        <div class="row d-flex align-items-center">
+            <div class="col-md-6">
+                    <div class="page-breadcrumb">
+                        &nbsp;
+                    </div>
+                </div>
+            <div class="col-md-6 justify-content-md-end d-md-flex">
+                <div class="breadcrumb_nav">
+                    <ol class="breadcrumb">
+                        <li>
+                            <i class="fa fa-home"></i>
+                            <a class="parent-item"href="javascript:void(0);">Home</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li class="active">
+                            Basic Form
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--page title end-->
+
+<div class="container-fluid">
+    <!-- state start-->
+    <div class="row">
+        <!--<div class=" col-xl-6">
+            <div class="card card-shadow mb-4">
+                <div class="card-header">
+                    <div class="card-title">
+                        Basic Form Controls
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Email address</label>
+                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Example select</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect2">Example multiple select</label>
+                            <select multiple class="form-control" id="exampleFormControlSelect2">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Example textarea</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            Submit
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>-->
+        <div class="col-xl-8 offset-xl-2">
+            <div class="card card-shadow mb-4">
+                <div class="card-header">
+                    <div class="card-title">
+                        Basic Form Controls
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div for="txtLastName">First name<span class="text-danger">*</span></div>
+                            <input type="text" class="form-control" name="txtFirstName" id="txtFirstName" placeholder="First name" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div for="txtLastName">Last name<span class="text-danger">*</span></div>
+                            <input type="text" class="form-control" name="txtLastName" id="txtLastName" placeholder="Last name" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div for="txtEmail">Email<span class="text-danger">*</span></div>
+                            <input type="email" class="form-control" name="txtEmail" id="txtEmail" placeholder="Email" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div for="txtPhone">Phone<span class="text-danger">*</span></div>
+                            <input type="text" class="form-control phone" name="txtPhone" id="txtPhone" placeholder="Phone" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div for="txtDateOfBirth">Date Of Birth<span class="text-danger">*</span></div>
+                            <input type="text" class="form-control" name="txtDateOfBirth" id="txtDateOfBirth" placeholder="Date Of Birth" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div for="rdoGender">Gender<span class="text-danger">*</span></div>
+                            <div class="btn-group divGender" data-toggle="buttons">
+                                <label class="btn btn-default rdoMale">
+                                    <input type="radio" id="rdoMale" name="rdoGender" value="Male">
+                                    Male
+                                </label>
+                                <label class="btn btn-default rdoFemale">
+                                    <input type="radio" id="rdoFemale" name="rdoGender" value="Female">
+                                    Female
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div for="txtAddress1">Address1<span class="text-danger">*</span></div>
+                            <textarea class="form-control" name="txtAddress1" id="txtAddress1" placeholder="Address1" required></textarea>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div for="txtAddress2">Address2</div>
+                            <textarea class="form-control" name="txtAddress2" id="txtAddress2" placeholder="Address2" required></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5 mb-3">
+                            <div for="txtCity">City<span class="text-danger">*</span></div>
+                            <input type="text" class="form-control" name="txtCity" id="txtCity" placeholder="City" required>
+                            <div class="invalid-feedback">
+                                Please provide a valid city.
+                            </div>
+                        </div>
+                        <div class="col-md-5 mb-3">
+                            <div for="ddlState">State<span class="text-danger">*</span></div>
+                            <select class="form-control" name="ddlState" id="ddlState" required>
+                                <option selected>Select State</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2 mb-3">
+                            <div for="txtZip">Zip<span class="text-danger">*</span></div>
+                            <input type="text" class="form-control" name="txtZip" id="txtZip" placeholder="Zip" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div for="fileProfileImage">Profile Image<span class="text-danger">*</span></div>
+                            <label class="custom-file">
+                                <input type="file" name="fileProfileImage" id="fileProfileImage" class="custom-file-input">
+                                <span class="custom-file-control"></span>
+                            </label>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div for="ddlSelectBox">Select Box</div>
+                            <select class="custom-select" name="ddlSelectBox" id="ddlSelectBox" required>
+                                <option>Select Box</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div for="chkCheckBox">Check Box</div>
+                            <label class="custom-control custom-checkbox">
+                                <input type="checkbox" name="chkCheckBox" id="chkCheckBox1" class="custom-control-input">
+                                <span class="custom-control-indicator"></span> <span class="custom-control-description">Check Box 1</span>
+                            </label>
+                            <label class="custom-control custom-checkbox">
+                                <input type="checkbox" name="chkCheckBox" id="chkCheckBox2" class="custom-control-input">
+                                <span class="custom-control-indicator"></span> <span class="custom-control-description">Check Box 2</span>
+                            </label>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div for="rdoRadioButton">Radio Button</div>
+                            <label class="custom-control custom-radio">
+                                <input type="radio" name="rdoRadioButton" id="rdoRadioButton1" class="custom-control-input">
+                                <span class="custom-control-indicator"></span> <span class="custom-control-description">Radio Button 1</span>
+                            </label>
+                            <label class="custom-control custom-radio">
+                                <input type="radio" name="rdoRadioButton" id="rdoRadioButton2" class="custom-control-input">
+                                <span class="custom-control-indicator"></span> <span class="custom-control-description">Radio Button 2</span>
+                            </label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary float-right">
+                        Submit
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- state end-->
+</div>
+
+

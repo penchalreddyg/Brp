@@ -20,8 +20,8 @@
 
 
     <!--data chart-->
-    @*<link href="~/assets/css/weather-icons.min.css" rel="stylesheet">
-        <link href="~/assets/css/jquery.easy-pie-chart.css" rel="stylesheet">*@
+    <link href="~/assets/css/weather-icons.min.css" rel="stylesheet">
+        <link href="~/assets/css/jquery.easy-pie-chart.css" rel="stylesheet">
 
     <!--bs4 data table-->
     <link href="~/assets/css/dataTables.bootstrap4.min.css" rel="stylesheet">
@@ -168,30 +168,30 @@
                 <ul id="dc_accordion" class="sidebar-menu tree">
 
                     <li>
-                        <a href="javascript:void(0);"> <i class="ti-home"></i> <span>Dashboard</span></a>
+                        <a href="Dashboard"> <i class="ti-home"></i> <span>Dashboard</span></a>
                     </li>
 
                     <li class="menu_sub">
                         <a href="javascript:void(0);"> <i class="icon-grid"></i> <span>Reports</span> <span class="icon-arrow-down styleicon"></span> </a>
                         <ul class="down_menu">
                             <li>
-                                <a href="javascript:void(0);">Yearly Report</a>
+                                <a href="ConsumerSummary">Consumer Summary</a>
                             </li>
                             <li>
-                                <a href="javascript:void(0);">Monthly Report</a>
+                                <a href="javascript:void(0);">Report 1</a>
                             </li>
                         </ul>
                     </li>
 
                     <li class="menu_sub">
-                        <a href="javascript:void(0);"> <i class="icon-speech"></i> <span>Data Forms</span> <span class="icon-arrow-down styleicon"></span> </a>
+                        <a href="javascript:void(0);"> <i class="icon-speech"></i> <span>Forms</span> <span class="icon-arrow-down styleicon"></span> </a>
 
                         <ul class="down_menu">
                             <li>
-                                <a href="javascript:void(0);">Basic Form</a>
+                                <a href="AddConsumer">Add Consumer</a>
                             </li>
                             <li>
-                                <a href="javascript:void(0);">Validation Form</a>
+                                <a href="javascript:void(0);">Form 1</a>
                             </li>
                         </ul>
                     </li>
@@ -202,11 +202,11 @@
             <main class="content_wrapper">
                 @RenderBody()
             </main>
-
-            <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                
-            </div>
             <!--main contents end-->
+
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+            </div>
         </div>
         <!-- Content_right_End -->
         <!-- Footer -->
@@ -230,7 +230,7 @@
     <script type="text/javascript" src="~/assets/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="~/assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
 
-    @*<!--easy pie chart-->
+    <!--easy pie chart-->
         <script src="~/assets/js/index/jquery.easy-pie-chart.js"></script>
         <script src="~/assets/js/index/easy-pie-chart-init.js"></script>
 
@@ -252,7 +252,7 @@
 
         <!--sparkline chart-->
         <script src="~/assets/js/index/jquery.sparkline.js"></script>
-        <script src="~/assets/js/index/sparkline-init.js"></script>*@
+        <script src="~/assets/js/index/sparkline-init.js"></script>
 
     <!--datatables-->
     <script src="~/assets/js/jquery.dataTables.min.js"></script>

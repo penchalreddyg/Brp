@@ -427,6 +427,8 @@
     <Content Include="Views\Enrollment\Recover.cshtml" />
     <Content Include="Views\Enrollment\Register.cshtml" />
     <Content Include="Views\Enrollment\_ConsumerProfile.cshtml" />
+    <Content Include="Views\Enrollment\Dashboard.cshtml" />
+    <Content Include="Views\Enrollment\AddConsumer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

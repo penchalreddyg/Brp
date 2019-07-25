@@ -28,6 +28,15 @@ namespace Brp.Controllers
         {
             return View();
         }
+        public ActionResult Dashboard()
+        {
+            return View();
+        }
+        public ActionResult AddConsumer()
+        {
+            return View();
+        }
+
 
         public ActionResult ConsumerSummary()
         {
