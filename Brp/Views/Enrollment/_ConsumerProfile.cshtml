@@ -1,0 +1,67 @@
+﻿
+@model Brp.Models.ConsumerResponse
+@if (Model.ConsumerDetails != null)
+{
+    <div class="modal-dialog modal-lg no-modal-header">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Consumer Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">ScoringID</label><label class="col-sm-5 text-left fw-bold">4343</label></div>
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">ConsumerName</label><label class="col-sm-6 text-left fw-bold">Linda Joyce</label></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">ConsumerEmail</label><label class="col-sm-5 text-left fw-bold">linda.joyce@unittest.com</label></div>
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">ConsumerID</label><label class="col-sm-5 text-left fw-bold">4343</label></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">EnrollmentStopped</label><label class="col-sm-5 text-left fw-bold">@Model.ConsumerDetails.EnrollmentStopped</label></div>
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">PartnerID</label><label class="col-sm-5 text-left fw-bold">127</label></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">Address1</label><label class="col-sm-5 text-left fw-bold">3190 West Fork Drive</label></div>
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">Address2</label><label class="col-sm-5 text-left fw-bold"></label></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">EnrollmentStopped</label><label class="col-sm-5 text-left fw-bold">True</label></div>
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">PartnerID</label><label class="col-sm-5 text-left fw-bold">127</label></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">ApartmentNumber</label><label class="col-sm-5 text-left fw-bold"></label></div>
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">City</label><label class="col-sm-5 text-left fw-bold">Plantation</label></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">PoBox</label><label class="col-sm-5 text-left fw-bold"></label></div>
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">StateName</label><label class="col-sm-5 text-left fw-bold">Florida</label></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">StateAbbreviation</label><label class="col-sm-5 text-left fw-bold">FL</label></div>
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">ZipCode</label><label class="col-sm-5 text-left fw-bold">33324</label></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">FirstName</label><label class="col-sm-5 text-left fw-bold">Linda</label></div>
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">LastName</label><label class="col-sm-5 text-left fw-bold">Joyce</label></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">Gender</label><label class="col-sm-5 text-left fw-bold"></label></div>
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">DOB</label><label class="col-sm-5 text-left fw-bold">10-07-1987</label></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">PhoneNumber</label><label class="col-sm-5 text-left fw-bold">7148987656</label></div>
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">MobileNumber</label><label class="col-sm-5 text-left fw-bold"></label></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">                   
+                    <button type="button" data-dismiss="modal" class="btn btn-light">Cancel</button>
+                </div>
+            </div>
+        </div>
+    
+}

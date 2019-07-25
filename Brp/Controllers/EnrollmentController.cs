@@ -1,4 +1,5 @@
 ﻿using Brp.Models;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,7 @@ namespace Brp.Controllers
 {
     public class EnrollmentController : Controller
     {
+
         // GET: Enrollment
         public ActionResult Login()
         {
@@ -48,6 +50,28 @@ namespace Brp.Controllers
                 throw ex;
             }
 
+        }
+
+        public PartialViewResult GetConsumerProfile()
+        {
+            try
+            {
+                var response = new ConsumerResponse();
+                var objReq = new ConsumerDetailsRequest();
+                objReq.GrantID = 3;
+                objReq.RequestBy = "Hosted Enrollment";
+                objReq.ConsumerID = 110852;
+                objReq.ServiceID = 142;
+                objReq.PassPort = new Passport { PassKey = "HEP-QA", PassPhrase = "9D17B253-D061-4343-90C3-583C78475304" };
+                var url = "api/EnrollmentServices/ConsumerProfile";
+                response = new ServiceClient().RunPut<ConsumerDetailsRequest, ConsumerResponse>(objReq, url);
+                return PartialView("_ConsumerProfile", response);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
 
     }

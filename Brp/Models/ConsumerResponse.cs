@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -10,7 +11,7 @@ namespace Brp.Models
     {
         [JsonProperty("ConsumerStates")]
         public List<ConsumerState> ConsumerStates { get; set; }
-
+        public ConsumerDetails ConsumerDetails { get; set; }
         [JsonProperty("Error")]
         public Error Error { get; set; }
     }
@@ -44,6 +45,7 @@ namespace Brp.Models
         public bool IdentityCheckComplete { get; set; }
 
         [JsonProperty("LastUpdate")]
+        [DisplayFormat(DataFormatString = "{0:d}")]
         public string LastUpdate { get; set; }
     }
 

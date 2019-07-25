@@ -1,35 +1,45 @@
-﻿
-@using Brp.Models
+﻿@using Newtonsoft.Json;
+
 @model Brp.Models.ConsumerResponse
 @{
-    ViewBag.Title = "- ConsumerSummary";
+    ViewBag.Title = "ConsumerSummary";
 }
 
 
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+
+@functions{
+    private DateTime DataFormat(string code)
+    {
+        string date = @"""" + code + @"""";
+        DateTime dt = JsonConvert.DeserializeObject<DateTime>(date);
+        return dt;
+    }
+}
+
 <script>
+
     $(document).ready(function () {
-        $("#detailedTable tbody td ").each(function () {
+        $('#detailedTable tr td').filter(function () {
+            return $(this).text().indexOf('True') === 0;
+        }).closest('td').html('<i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i>');
 
-            if ($(this).text() == 'True') {
-                $(this).html('<i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i>');
-            }
-            else if ($(this).text() == 'False') {
-                $(this).html('<i class="fa fa-times error trf" data-toggle="tooltip" data-placement="left" title="" data-original-title="False"></i>');
-            }
+        $('#detailedTable tr  td').filter(function () {
+            return $(this).text().indexOf('False') === 0;
+        }).closest('td').html('<i class="fa fa-times error trf" data-toggle="tooltip" data-placement="left" title="" data-original-title="False"></i>');
 
-
-        });
-        //$('#detailedTable tr td').filter(function () {
-        //    return $(this).text().indexOf('True') === 0;
-        //}).closest('td').addClass('fa fa-check has-success trf');
-
-        //$('#detailedTable tr  td').filter(function () {
-        //    return $(this).text().indexOf('False') === 0;
-        //}).closest('td').addClass('fa fa-times error trf');
+           $(".consumer_link").click(function () {
+               $('#myModal').modal('show');
+             //  var customerId = $(this).closest("tr").find("td").eq(0).html();
+               $.get('@Url.Action("GetConsumerProfile", "Enrollment")', function (data) {
+                   $("#myModal").append(data);
+               });
+             });
     });
-</script>
 
+
+</script>
+<table class="table table-responsive table-hover table-bordered">  </table>
 <!--page title start-->
 <div class="page-heading">
     <div class="container-fluid">
@@ -69,12 +79,12 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <div id="detailedTable1"></div>
+
                     <table id="detailedTable" class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <td>Partner Id</td>
                                 <td>Consumer Id</td>
+                                <td>Partner Id</td>
                                 <td>Consumer Name</td>
                                 <td>Email</td>
                                 <td>Registered</td>
@@ -83,11 +93,10 @@
                                 <td>Bank Info Received</td>
                                 <td>Identity Check Complete</td>
                                 <td>Last Update</td>
-
                             </tr>
                             <tr>
-                                <th>Partner Id</th>
                                 <th>Consumer Id</th>
+                                <th>Partner Id</th>
                                 <th>Consumer Name</th>
                                 <th>Email</th>
                                 <th>Registered</th>
@@ -98,21 +107,26 @@
                                 <th>Last Update</th>
                             </tr>
                         </thead>
-                        @foreach (var item in Model.ConsumerStates)
+                        @if (Model.ConsumerStates != null)
                         {
-
-                            <tr>
-                                <td>@item.PartnerId </td>
-                                <td>@item.ConsumerId</td>
-                                <td>@item.ConsumerName</td>
-                                <td>@item.Email </td>
-                                <td >@item.Registered </td>
-                                <td>@item.DemoInfoReceived </td>
-                                <td>@item.RedirectComplete</td>
-                                <td>@item.BankInfoReceived</td>
-                                <td>@item.IdentityCheckComplete </td>
-                                <td>@item.LastUpdate</td>
-                            </tr>
+                            foreach (var item in Model.ConsumerStates)
+                            {
+                                @*<tr class="consumer_link">*@
+                                <tr class="consumer_link">
+                                    <td>
+                                        <a href="#" title="" data-toggle="modal" data-target="#myModal" data-original-title="Edit Variant"> @item.ConsumerId</a>
+                                    </td>
+                                    <td>@item.PartnerId </td>
+                                    <td>@item.ConsumerName</td>
+                                    <td>@item.Email </td>
+                                    <td>@item.Registered </td>
+                                    <td>@item.DemoInfoReceived </td>
+                                    <td>@item.RedirectComplete</td>
+                                    <td>@item.BankInfoReceived</td>
+                                    <td>@item.IdentityCheckComplete </td>
+                                    <td>@DataFormat(item.LastUpdate)</td>
+                                </tr>
+                            }
                         }
                         <!--<tfoot>
                             <tr>
@@ -132,70 +146,71 @@
     <!-- state end-->
 </div>
 <!-- Modal starts -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Consumer Details</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="col-sm-12">
-                    <div class="row">
-                        <div class="col-sm-6"><label class="col-sm-5 text-right">ScoringID</label><label class="col-sm-5 text-left fw-bold">4286</label></div>
-                        <div class="col-sm-6"><label class="col-sm-5 text-right">ConsumerName</label><label class="col-sm-6 text-left fw-bold">Alberta Charleson</label></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-6"><label class="col-sm-5 text-right">ConsumerEmail</label><label class="col-sm-5 text-left fw-bold">dhana0988015@hepgui.com</label></div>
-                        <div class="col-sm-6"><label class="col-sm-5 text-right">ConsumerLegacyID</label><label class="col-sm-5 text-left fw-bold">110852</label></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-6"><label class="col-sm-5 text-right">EnrollmentStopped</label><label class="col-sm-5 text-left fw-bold">False</label></div>
-                        <div class="col-sm-6"><label class="col-sm-5 text-right">PartnerID</label><label class="col-sm-5 text-left fw-bold">127n</label></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-6"><label class="col-sm-5 text-right">Address1</label><label class="col-sm-5 text-left fw-bold">2493 Leisure Lane</label></div>
-                        <div class="col-sm-6"><label class="col-sm-5 text-right">Address2</label><label class="col-sm-5 text-left fw-bold">2493 Leisure Lane</label></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-6"><label class="col-sm-5 text-right">EnrollmentStopped</label><label class="col-sm-5 text-left fw-bold">False</label></div>
-                        <div class="col-sm-6"><label class="col-sm-5 text-right">PartnerID</label><label class="col-sm-5 text-left fw-bold">127</label></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-6"><label class="col-sm-5 text-right">ApartmentNumber</label><label class="col-sm-5 text-left fw-bold">55</label></div>
-                        <div class="col-sm-6"><label class="col-sm-5 text-right">City</label><label class="col-sm-5 text-left fw-bold">San Matias</label></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-6"><label class="col-sm-5 text-right">PoBox</label><label class="col-sm-5 text-left fw-bold">92612</label></div>
-                        <div class="col-sm-6"><label class="col-sm-5 text-right">StateName</label><label class="col-sm-5 text-left fw-bold">California</label></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-6"><label class="col-sm-5 text-right">StateAbbreviation</label><label class="col-sm-5 text-left fw-bold">CA</label></div>
-                        <div class="col-sm-6"><label class="col-sm-5 text-right">ZipCode</label><label class="col-sm-5 text-left fw-bold">93405</label></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-6"><label class="col-sm-5 text-right">FirstName</label><label class="col-sm-5 text-left fw-bold">Alberta</label></div>
-                        <div class="col-sm-6"><label class="col-sm-5 text-right">LastName</label><label class="col-sm-5 text-left fw-bold">Charleson</label></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-6"><label class="col-sm-5 text-right">Gender</label><label class="col-sm-5 text-left fw-bold">Male</label></div>
-                        <div class="col-sm-6"><label class="col-sm-5 text-right">DOB</label><label class="col-sm-5 text-left fw-bold">04/12/1987</label></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-6"><label class="col-sm-5 text-right">PhoneNumber</label><label class="col-sm-5 text-left fw-bold">7637737396</label></div>
-                        <div class="col-sm-6"><label class="col-sm-5 text-right">MobileNumber</label><label class="col-sm-5 text-left fw-bold">9980079627</label></div>
+@*<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Consumer Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">ScoringID</label><label class="col-sm-5 text-left fw-bold">4286</label></div>
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">ConsumerName</label><label class="col-sm-6 text-left fw-bold">Alberta Charleson</label></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">ConsumerEmail</label><label class="col-sm-5 text-left fw-bold">dhana0988015@hepgui.com</label></div>
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">ConsumerLegacyID</label><label class="col-sm-5 text-left fw-bold">110852</label></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">EnrollmentStopped</label><label class="col-sm-5 text-left fw-bold">False</label></div>
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">PartnerID</label><label class="col-sm-5 text-left fw-bold">127n</label></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">Address1</label><label class="col-sm-5 text-left fw-bold">2493 Leisure Lane</label></div>
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">Address2</label><label class="col-sm-5 text-left fw-bold">2493 Leisure Lane</label></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">EnrollmentStopped</label><label class="col-sm-5 text-left fw-bold">False</label></div>
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">PartnerID</label><label class="col-sm-5 text-left fw-bold">127</label></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">ApartmentNumber</label><label class="col-sm-5 text-left fw-bold">55</label></div>
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">City</label><label class="col-sm-5 text-left fw-bold">San Matias</label></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">PoBox</label><label class="col-sm-5 text-left fw-bold">92612</label></div>
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">StateName</label><label class="col-sm-5 text-left fw-bold">California</label></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">StateAbbreviation</label><label class="col-sm-5 text-left fw-bold">CA</label></div>
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">ZipCode</label><label class="col-sm-5 text-left fw-bold">93405</label></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">FirstName</label><label class="col-sm-5 text-left fw-bold">Alberta</label></div>
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">LastName</label><label class="col-sm-5 text-left fw-bold">Charleson</label></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">Gender</label><label class="col-sm-5 text-left fw-bold">Male</label></div>
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">DOB</label><label class="col-sm-5 text-left fw-bold">04/12/1987</label></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">PhoneNumber</label><label class="col-sm-5 text-left fw-bold">7637737396</label></div>
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">MobileNumber</label><label class="col-sm-5 text-left fw-bold">9980079627</label></div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-success">Print</button>
-                <button type="button" class="btn btn-light">Cancel</button>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success">Print</button>
+                    <button type="button" class="btn btn-light">Cancel</button>
+                </div>
             </div>
         </div>
-    </div>
-</div>
+    </div>*@
+
 
 
 <!-- Modal Ends -->
