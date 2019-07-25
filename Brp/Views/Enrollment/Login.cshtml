@@ -79,12 +79,12 @@
                         <button type="button" class="btn btn-primary btn-flat m-b-30 m-t-30" id="btnSignin">Sign in</button>
                         <div class="social-login-content">
                             <div class="social-button">
-                                <button type="button" class="btn social google btn-flat btn-addon mb-1">
+                                <button type="button" class="btn social google btn-flat btn-addon mb-1" onclick="location.href='@Url.Action("RedirectToGoogle", "Home")'" />
                                     <i class="fa fa-google"></i>Sign in with Google
                                 </button>
-                                <!--<button type="button" class="btn social facebook btn-flat btn-addon mt-1">
+                                @*<button type="button" class="btn social facebook btn-flat btn-addon mt-1">
                                     <i class="fa fa-facebook"></i>Sign in with facebook
-                                </button>-->
+                                </button>*@
                             </div>
                         </div>
                         <div class="register-link m-t-15 text-center">
