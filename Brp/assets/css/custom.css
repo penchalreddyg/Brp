@@ -1672,6 +1672,6 @@ Author URI: http://connexinfo.com
 .modal-dialog {
     margin-top:150px;
 }
-.dataTables_length, .dataTables_filter{
+/*.dataTables_length, .dataTables_filter{
     display:none;
-}
+}*/
