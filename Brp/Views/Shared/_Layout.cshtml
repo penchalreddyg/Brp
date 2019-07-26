@@ -269,10 +269,6 @@
         //       $('#myModal').modal('show');
         //    }); 
         $(document).ready(function () {
-
-
-           
-
             //$('#detailedTable').dataTable({
             //    "lengthChange": false,
             //    "searching": false,
@@ -285,7 +281,10 @@
                 //$(this).html('<input type="text" placeholder="Search ' + title + '" />');
             });
             // DataTable
-            var table = $('#detailedTable').DataTable();
+            var table = $('#detailedTable').DataTable({
+                //"lengthChange": false,
+                //"searching": false,
+            });
             // Apply the search
             table.columns().every(function () {
                 var that = this;

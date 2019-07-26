@@ -92,6 +92,7 @@
                                 <th>Bank Info Received</th>
                                 <th>Identity Check Complete</th>
                                 <th>Last Update</th>
+                                <th>Actions</th>
                             </tr>
                             <tr>
                                 <td>Consumer Id</td>
@@ -104,6 +105,7 @@
                                 <td>Bank Info Received</td>
                                 <td>Identity Check Complete</td>
                                 <td>Last Update</td>
+                                <td>Actions</td>
                             </tr>
                         </thead>
                         @if (Model.ConsumerStates != null)
@@ -111,20 +113,21 @@
                             foreach (var item in Model.ConsumerStates)
                             {
                                 @*<tr class="consumer_link">*@
-                                <tr class="consumer_link">
-                                    <td>
-                                        <a href="#" title="" data-toggle="modal" data-target="#myModal" data-original-title="Edit Variant"> @item.ConsumerId</a>
-                                    </td>
-                                    <td>@item.PartnerId </td>
-                                    <td>@item.ConsumerName</td>
-                                    <td>@item.Email </td>
-                                    <td>@item.Registered </td>
-                                    <td>@item.DemoInfoReceived </td>
-                                    <td>@item.RedirectComplete</td>
-                                    <td>@item.BankInfoReceived</td>
-                                    <td>@item.IdentityCheckComplete </td>
-                                    <td>@DataFormat(item.LastUpdate)</td>
-                                </tr>
+                        <tr class="consumer_link">
+                            <td>
+                                <a href="#" title="" data-toggle="modal" data-target="#myModal" data-original-title="Edit Variant"> @item.ConsumerId</a>
+                            </td>
+                            <td>@item.PartnerId </td>
+                            <td>@item.ConsumerName</td>
+                            <td>@item.Email </td>
+                            <td>@item.Registered </td>
+                            <td>@item.DemoInfoReceived </td>
+                            <td>@item.RedirectComplete</td>
+                            <td>@item.BankInfoReceived</td>
+                            <td>@item.IdentityCheckComplete </td>
+                            <td>@DataFormat(item.LastUpdate)</td>
+                            <td><i class="fa fa-power-off error" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Block"></i> / <i class="fa fa-exclamation-triangle has-warning" data-toggle="tooltip" data-placement="top" title="" data-original-title="Suspend"></i></td>
+                        </tr>
                             }
                         }
                         <!--<tfoot>
