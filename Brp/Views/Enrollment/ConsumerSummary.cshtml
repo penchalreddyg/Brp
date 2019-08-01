@@ -28,12 +28,25 @@
             return $(this).text().indexOf('False') === 0;
         }).closest('td').html('<i class="fa fa-times error trf" data-toggle="tooltip" data-placement="left" title="" data-original-title="False"></i>');
 
-           $(".consumer_link").click(function () {
+        $(".consumer_link").click(function () {
+            $('#myModal').modal('hide');
                $('#myModal').modal('show');
-             //  var customerId = $(this).closest("tr").find("td").eq(0).html();
-               $.get('@Url.Action("GetConsumerProfile", "Enrollment")', function (data) {
-                   $("#myModal").append(data);
-               });
+               var legacyConsumerId = $(this).closest("tr").find("td").eq(2).html();
+                 var id = $(this).attr("data_id");
+            $.ajax({
+                url: '@Url.Action("GetConsumerProfile", "Enrollment")',
+                type: "post",
+                dataType: "html",
+                contentType: 'application/json; charset=utf-8',
+                data: JSON.stringify({ consumerId: legacyConsumerId }), //add parameter
+                success: function (data) {
+                    $("#myModal").append(data);
+                },
+                error: function () {
+                    alert("error");
+                }
+            });
+
              });
     });
 
@@ -113,21 +126,22 @@
                             foreach (var item in Model.ConsumerStates)
                             {
                                 @*<tr class="consumer_link">*@
-                        <tr class="consumer_link">
-                            <td>
-                                <a href="#" title="" data-toggle="modal" data-target="#myModal" data-original-title="Edit Variant"> @item.ConsumerId</a>
-                            </td>
-                            <td>@item.PartnerId </td>
-                            <td>@item.ConsumerName</td>
-                            <td>@item.Email </td>
-                            <td>@item.Registered </td>
-                            <td>@item.DemoInfoReceived </td>
-                            <td>@item.RedirectComplete</td>
-                            <td>@item.BankInfoReceived</td>
-                            <td>@item.IdentityCheckComplete </td>
-                            <td>@DataFormat(item.LastUpdate)</td>
-                            <td><i class="fa fa-power-off error" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Block"></i> / <i class="fa fa-exclamation-triangle has-warning" data-toggle="tooltip" data-placement="top" title="" data-original-title="Suspend"></i></td>
-                        </tr>
+                                <tr class="consumer_link">
+                                    <td>
+                                        <a href="#" title="" data-toggle="modal" data-target="#myModal" data-original-title="Edit Variant"> @item.ConsumerId</a>
+                                    </td>
+                                    <td>@item.PartnerId </td>
+                                    <td>@item.LegacyConsumerID </td>
+                                    <td>@item.ConsumerName</td>
+                                    <td>@item.Email </td>
+                                    <td>@item.Registered </td>
+                                    <td>@item.DemoInfoReceived </td>
+                                    <td>@item.RedirectComplete</td>
+                                    <td>@item.BankInfoReceived</td>
+                                    <td>@item.IdentityCheckComplete </td>
+                                    <td>@DataFormat(item.LastUpdate)</td>
+                                    <td><i class="fa fa-power-off error" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Block"></i> / <i class="fa fa-exclamation-triangle has-warning" data-toggle="tooltip" data-placement="top" title="" data-original-title="Suspend"></i></td>
+                                </tr>
                             }
                         }
                         <!--<tfoot>

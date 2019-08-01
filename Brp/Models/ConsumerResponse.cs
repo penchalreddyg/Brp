@@ -43,6 +43,8 @@ namespace Brp.Models
 
         [JsonProperty("IdentityCheckComplete")]
         public bool IdentityCheckComplete { get; set; }
+        [JsonProperty("IdentityCheckComplete")]
+        public int LegacyConsumerID { get; set; }
 
         [JsonProperty("LastUpdate")]
         [DisplayFormat(DataFormatString = "{0:d}")]

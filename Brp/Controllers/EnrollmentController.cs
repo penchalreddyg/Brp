@@ -61,7 +61,7 @@ namespace Brp.Controllers
 
         }
 
-        public PartialViewResult GetConsumerProfile()
+        public PartialViewResult GetConsumerProfile(int consumerId)
         {
             try
             {
@@ -69,7 +69,7 @@ namespace Brp.Controllers
                 var objReq = new ConsumerDetailsRequest();
                 objReq.GrantID = 3;
                 objReq.RequestBy = "Hosted Enrollment";
-                objReq.ConsumerID = 110852;
+                objReq.ConsumerID = consumerId;
                 objReq.ServiceID = 142;
                 objReq.PassPort = new Passport { PassKey = "HEP-QA", PassPhrase = "9D17B253-D061-4343-90C3-583C78475304" };
                 var url = "api/EnrollmentServices/ConsumerProfile";
