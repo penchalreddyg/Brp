@@ -1,74 +1,105 @@
 ﻿
 @model Brp.Models.ConsumerResponse
-    <script type="text/javascript">
-        $(".close").click(function () {
-            debugger;
-            $('#myModal').modal('hide');
-        });
-     
-    </script>
+<script type="text/javascript">
+    $(".close").click(function () {
+        debugger;
+        $('#myModal').modal('hide');
+    });
+
+</script>
 @if (Model.ConsumerDetails != null)
 {
-    <div class="modal-dialog modal-lg no-modal-header">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Consumer Details</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="col-sm-12">
-                        <div class="row">
-                            <div class="col-sm-6"><label class="col-sm-5 text-right">ScoringID</label><label class="col-sm-5 text-left fw-bold">@Model.ConsumerDetails.ScoringID</label></div>
-                            <div class="col-sm-6"><label class="col-sm-5 text-right">ConsumerName</label><label class="col-sm-6 text-left fw-bold">@Model.ConsumerDetails.ConsumerName</label></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-6"><label class="col-sm-5 text-right">ConsumerEmail</label><label class="col-sm-5 text-left fw-bold">@Model.ConsumerDetails.ConsumerEmail</label></div>
-                            <div class="col-sm-6"><label class="col-sm-5 text-right">ConsumerID</label><label class="col-sm-5 text-left fw-bold">@Model.ConsumerDetails.ConsumerLegacyID</label></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-6"><label class="col-sm-5 text-right">EnrollmentStopped</label><label class="col-sm-5 text-left fw-bold">@Model.ConsumerDetails.EnrollmentStopped</label></div>
-                            <div class="col-sm-6"><label class="col-sm-5 text-right">PartnerID</label><label class="col-sm-5 text-left fw-bold">@Model.ConsumerDetails.PartnerID</label></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-6"><label class="col-sm-5 text-right">Address1</label><label class="col-sm-5 text-left fw-bold">@Model.ConsumerDetails.Address1</label></div>
-                            <div class="col-sm-6"><label class="col-sm-5 text-right">Address2</label><label class="col-sm-5 text-left fw-bold">@Model.ConsumerDetails.Address2</label></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-6"><label class="col-sm-5 text-right">EnrollmentStopped</label><label class="col-sm-5 text-left fw-bold">@Model.ConsumerDetails.EnrollmentStopped</label></div>
-                            <div class="col-sm-6"><label class="col-sm-5 text-right">PartnerID</label><label class="col-sm-5 text-left fw-bold">@Model.ConsumerDetails.PartnerID</label></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-6"><label class="col-sm-5 text-right">ApartmentNumber</label><label class="col-sm-5 text-left fw-bold">@Model.ConsumerDetails.ApartmentNumber</label></div>
-                            <div class="col-sm-6"><label class="col-sm-5 text-right">City</label><label class="col-sm-5 text-left fw-bold">@Model.ConsumerDetails.City</label></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-6"><label class="col-sm-5 text-right">PoBox</label><label class="col-sm-5 text-left fw-bold">@Model.ConsumerDetails.PoBox</label></div>
-                            <div class="col-sm-6"><label class="col-sm-5 text-right">StateName</label><label class="col-sm-5 text-left fw-bold">@Model.ConsumerDetails.StateName</label></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-6"><label class="col-sm-5 text-right">StateAbbreviation</label><label class="col-sm-5 text-left fw-bold">@Model.ConsumerDetails.StateAbbreviation</label></div>
-                            <div class="col-sm-6"><label class="col-sm-5 text-right">ZipCode</label><label class="col-sm-5 text-left fw-bold">@Model.ConsumerDetails.ZipCode</label></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-6"><label class="col-sm-5 text-right">FirstName</label><label class="col-sm-5 text-left fw-bold">@Model.ConsumerDetails.FirstName</label></div>
-                            <div class="col-sm-6"><label class="col-sm-5 text-right">LastName</label><label class="col-sm-5 text-left fw-bold">@Model.ConsumerDetails.LastName</label></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-6"><label class="col-sm-5 text-right">Gender</label><label class="col-sm-5 text-left fw-bold">@Model.ConsumerDetails.Gender</label></div>
-                            <div class="col-sm-6"><label class="col-sm-5 text-right">DOB</label><label class="col-sm-5 text-left fw-bold">@Model.ConsumerDetails.DOB</label></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-6"><label class="col-sm-5 text-right">PhoneNumber</label><label class="col-sm-5 text-left fw-bold">@Model.ConsumerDetails.PhoneNumber</label></div>
-                            <div class="col-sm-6"><label class="col-sm-5 text-right">MobileNumber</label><label class="col-sm-5 text-left fw-bold">@Model.ConsumerDetails.MobileNumber</label></div>
+    <div class="modal-dialog modal-dialog-centered modal-lg no-modal-header" id="ModalLabel1">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Consumer Details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="row">
+                                <h2 class="cstmh2">
+                                    <label class="cstmsect">
+                                        <span>1</span>
+                                    </label>
+                                    Consumer Details Section
+                                </h2>
+                            </div>
+                            <div class="col-sm-12 cstmbl mb-3">
+                                <div class="row">
+                                    <div class="col-sm-6 plr-1"><label class="col-sm-6 text-right pl-0 text-truncate">ScoringID</label><label class="col-sm-6 text-left plr-0 fw-bold text-truncate">@Model.ConsumerDetails.ScoringID</label></div>
+                                    <div class="col-sm-6 plr-1"><label class="col-sm-6 text-right pl-0 text-truncate">ConsumerName</label><label class="col-sm-6 text-left plr-0 fw-bold text-truncate">@Model.ConsumerDetails.ConsumerName</label></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6 plr-1"><label class="col-sm-6 text-right pl-0 text-truncate">ConsumerEmail</label><label class="col-sm-6 text-left plr-0 fw-bold text-truncate">@Model.ConsumerDetails.ConsumerEmail</label></div>
+                                    <div class="col-sm-6 plr-1"><label class="col-sm-6 text-right pl-0 text-truncate">ConsumerID</label><label class="col-sm-6 text-left plr-0 fw-bold text-truncate">@Model.ConsumerDetails.ConsumerLegacyID</label></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6 plr-1"><label class="col-sm-6 text-right pl-0 text-truncate">EnrollmentStopped</label><label class="col-sm-6 text-left plr-0 fw-bold text-truncate">@Model.ConsumerDetails.EnrollmentStopped</label></div>
+                                    <div class="col-sm-6 plr-1"><label class="col-sm-6 text-right pl-0 text-truncate">PartnerID</label><label class="col-sm-6 text-left plr-0 fw-bold text-truncate">@Model.ConsumerDetails.PartnerID</label></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6 plr-1"><label class="col-sm-6 text-right pl-0 text-truncate">Address1</label><label class="col-sm-6 text-left plr-0 fw-bold text-truncate">@Model.ConsumerDetails.Address1</label></div>
+                                    <div class="col-sm-6 plr-1"><label class="col-sm-6 text-right pl-0 text-truncate">Address2</label><label class="col-sm-6 text-left plr-0 fw-bold text-truncate">@Model.ConsumerDetails.Address2</label></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <h2 class="cstmh2">
+                                    <label class="cstmsect">
+                                        <span>2</span>
+                                    </label>
+                                    Consumer Details Section
+                                </h2>
+                            </div>
+                            <div class="col-sm-12 cstmbl mb-3">
+                                <div class="row">
+                                    <div class="col-sm-6 plr-1"><label class="col-sm-6 text-right pl-0 text-truncate">EnrollmentStopped</label><label class="col-sm-6 text-left plr-0 fw-bold text-truncate">@Model.ConsumerDetails.EnrollmentStopped</label></div>
+                                    <div class="col-sm-6 plr-1"><label class="col-sm-6 text-right pl-0 text-truncate">PartnerID</label><label class="col-sm-6 text-left plr-0 fw-bold text-truncate">@Model.ConsumerDetails.PartnerID</label></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6 plr-1"><label class="col-sm-6 text-right pl-0 text-truncate">ApartmentNumber</label><label class="col-sm-6 text-left plr-0 fw-bold text-truncate">@Model.ConsumerDetails.ApartmentNumber</label></div>
+                                    <div class="col-sm-6 plr-1"><label class="col-sm-6 text-right pl-0 text-truncate">City</label><label class="col-sm-6 text-left plr-0 fw-bold text-truncate">@Model.ConsumerDetails.City</label></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6 plr-1"><label class="col-sm-6 text-right pl-0 text-truncate">PoBox</label><label class="col-sm-6 text-left plr-0 fw-bold text-truncate">@Model.ConsumerDetails.PoBox</label></div>
+                                    <div class="col-sm-6 plr-1"><label class="col-sm-6 text-right pl-0 text-truncate">StateName</label><label class="col-sm-6 text-left plr-0 fw-bold text-truncate">@Model.ConsumerDetails.StateName</label></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6 plr-1"><label class="col-sm-6 text-right pl-0 text-truncate">StateAbbreviation</label><label class="col-sm-6 text-left plr-0 fw-bold text-truncate">@Model.ConsumerDetails.StateAbbreviation</label></div>
+                                    <div class="col-sm-6 plr-1"><label class="col-sm-6 text-right pl-0 text-truncate">ZipCode</label><label class="col-sm-6 text-left plr-0 fw-bold text-truncate">@Model.ConsumerDetails.ZipCode</label></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <h2 class="cstmh2">
+                                    <label class="cstmsect">
+                                        <span>3</span>
+                                    </label>
+                                    Consumer Details Section
+                                </h2>
+                            </div>
+                            <div class="col-sm-12 cstmbl mb-3">
+                                <div class="row">
+                                    <div class="col-sm-6 plr-1"><label class="col-sm-6 text-right pl-0 text-truncate">FirstName</label><label class="col-sm-6 text-left plr-0 fw-bold text-truncate">@Model.ConsumerDetails.FirstName</label></div>
+                                    <div class="col-sm-6 plr-1"><label class="col-sm-6 text-right pl-0 text-truncate">LastName</label><label class="col-sm-6 text-left plr-0 fw-bold text-truncate">@Model.ConsumerDetails.LastName</label></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6 plr-1"><label class="col-sm-6 text-right pl-0 text-truncate">Gender</label><label class="col-sm-6 text-left plr-0 fw-bold text-truncate">@Model.ConsumerDetails.Gender</label></div>
+                                    <div class="col-sm-6 plr-1"><label class="col-sm-6 text-right pl-0 text-truncate">DOB</label><label class="col-sm-6 text-left plr-0 fw-bold text-truncate">@Model.ConsumerDetails.DOB</label></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6 plr-1"><label class="col-sm-6 text-right pl-0 text-truncate">PhoneNumber</label><label class="col-sm-6 text-left plr-0 fw-bold text-truncate">@Model.ConsumerDetails.PhoneNumber</label></div>
+                                    <div class="col-sm-6 plr-1"><label class="col-sm-6 text-right pl-0 text-truncate">MobileNumber</label><label class="col-sm-6 text-left plr-0 fw-bold text-truncate">@Model.ConsumerDetails.MobileNumber</label></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="modal-footer">                   
-                    <button type="button" data-dismiss="modal" id="btnClose"  class="btn btn-light">Close</button>
-                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" id="btnClose" class="btn btn-light">Close</button>
             </div>
         </div>
-    
+    </div>
 }

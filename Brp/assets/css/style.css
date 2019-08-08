@@ -355,8 +355,13 @@ background:#5c35fc !important;
 }
 
 .plr-0 {
-	padding-left: 0;
-	padding-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.plr-1 {
+    padding-left: .25rem;
+    padding-right: .25rem;
 }
 
 .pl-0 {
@@ -537,6 +542,26 @@ background:#5c35fc !important;
 	margin-top: 20px;
 }
 
+.mlr-2 {
+    margin-left: .5rem;
+    margin-right: .5rem;
+}
+.mtb-2 {
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+}
+.mr-2 {
+    margin-right: .5rem;
+}
+.ml-2 {
+    margin-left: .5rem;
+}
+.mt-2 {
+    margin-top: .5rem;
+}
+.mb-2 {
+    margin-bottom: .5rem;
+}
 .mt-80 {
 	margin-top: 80px;
 }
@@ -4827,15 +4852,42 @@ td .todo--text::before {
 .trf{
     font-size: 20px;
 }
-.modal-body .col-sm-12 {
-    border: 1px solid #ccc;
-    border-radius:3px;
-}
-.modal-body .col-sm-12 .row{
+.card-body .col-sm-12 .row {
     border-bottom: 1px solid #ccc;
 }
-.modal-body .col-sm-12 .row label {
+.card-body .row label {
     margin-top: .5rem;
+}
+.card-body .row {
+    margin-right: -20px;
+    margin-left: -20px;
+}
+.cstmh2{
+    margin-bottom: .5rem;
+}
+.cstmbl {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    border-left: 3px solid #1269db;
+}
+.modal-body .col-sm-12 .col-sm-12 .row {
+    border-bottom: 1px solid #ccc;
+}
+.modal-body .col-sm-12 .col-sm-12 .row label {
+    margin-top: .5rem;
+}
+.cstmsect span {
+    vertical-align: sub;
+}
+.cstmsect {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    background: #1269db;
+    border-radius: 15px;
+    margin: 0;
+    color: #fff;
+    font-weight: 600 !important;
 }
 .has-success .help-block,
 .has-success .control-label,
@@ -4960,7 +5012,6 @@ td .todo--text::before {
 {
     width:100%;
 }*/
-
 /***** BUTTONS *****/
 .btn {
     padding: 10px 12px 9px;
@@ -5084,4 +5135,8 @@ td .todo--text::before {
 	height: 14px;
 	padding: 2px 5px 2px 5px;
 	overflow: hidden;
+}
+.font-medium{
+    font-size: 20px;
+    font-weight: 500;
 }

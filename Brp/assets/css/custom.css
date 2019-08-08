@@ -1669,9 +1669,9 @@ Author URI: http://connexinfo.com
     bottom: 20px;
     z-index: 9999;
 }
-.modal-dialog {
+/*.modal-dialog {
     margin-top:150px;
 }
-/*.dataTables_length, .dataTables_filter{
+.dataTables_length, .dataTables_filter{
     display:none;
 }*/
