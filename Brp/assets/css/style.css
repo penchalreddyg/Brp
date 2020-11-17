@@ -1461,8 +1461,8 @@ body {
 
 /* Footer */
 .footer {
-	background: #fff;
-	padding-left:0px;
+    background: #2b3f4f;
+    padding-left: 0px;
 }
 .nav_small .footer{
 	padding-left: 70px;
@@ -1475,7 +1475,7 @@ body {
 }
 .copy_right p {
 	margin: 0px;
-	color:#53505f;
+	color:#fff;
 	font-size: 14px;
 }
 .copy_right p a {
@@ -4834,11 +4834,16 @@ td .todo--label {
 table.dataTable td, table.dataTable th {
     text-align: center;
 }
-table tbody tr td {
+table tbody tr td{
     overflow: hidden !important;
     text-overflow: ellipsis !important;
     white-space: nowrap !important;
-    width: 100px !important;
+    max-width: 150px !important;
+}
+table tr th {
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    max-width: 150px !important;
 }
 td .todo--text::before {
     border: 2px solid #ff2e44 !important;
