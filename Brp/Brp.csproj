@@ -432,6 +432,8 @@
     <Content Include="Views\Enrollment\_ConsumerProfile.cshtml" />
     <Content Include="Views\Enrollment\Dashboard.cshtml" />
     <Content Include="Views\Enrollment\AddConsumer.cshtml" />
+    <Content Include="Views\Enrollment\DashboardNew.cshtml" />
+    <Content Include="Views\Enrollment\ConsumerDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

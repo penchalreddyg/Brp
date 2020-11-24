@@ -1,0 +1,394 @@
+﻿
+
+@using Newtonsoft.Json;
+
+@model Brp.Models.ConsumerResponse
+@{
+    ViewBag.Title = "ConsumerDetails";
+}
+
+
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+
+@functions{
+    private DateTime DataFormat(string code)
+    {
+        string date = @"""" + code + @"""";
+        DateTime dt = JsonConvert.DeserializeObject<DateTime>(date);
+        return dt;
+    }
+}
+
+<script>
+
+    $(document).ready(function () {
+        $('#detailedTable tr td').filter(function () {
+            return $(this).text().indexOf('True') === 0;
+        }).closest('td').html('<i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i>');
+
+        $('#detailedTable tr  td').filter(function () {
+            return $(this).text().indexOf('False') === 0;
+        }).closest('td').html('<i class="fa fa-times error trf" data-toggle="tooltip" data-placement="left" title="" data-original-title="False"></i>');
+
+        $(".consumer_link").click(function () {
+            $('#myModal').modal('hide');
+               $('#myModal').modal('show');
+               var legacyConsumerId = $(this).closest("tr").find("td").eq(2).html();
+                 var id = $(this).attr("data_id");
+            $.ajax({
+                url: '@Url.Action("GetConsumerProfile", "Enrollment")',
+                type: "post",
+                dataType: "html",
+                contentType: 'application/json; charset=utf-8',
+                data: JSON.stringify({ consumerId: legacyConsumerId }), //add parameter
+                success: function (data) {
+                    $("#myModal").append(data);
+                },
+                error: function () {
+                    alert("error");
+                }
+            });
+
+             });
+    });
+
+
+</script>
+<!--page title start-->
+<div class="page-heading">
+    <div class="container-fluid">
+        <div class="row d-flex align-items-center">
+            <div class="col-md-6">
+                <div class="page-breadcrumb">
+                    @*<h1> Consumer Summary</h1>*@
+                    &nbsp;
+                </div>
+            </div>
+            <div class="col-md-6 justify-content-md-end d-flex">
+                <div class="breadcrumb_nav">
+                    <ol class="breadcrumb">
+                        <li>
+                            <i class="fa fa-home"></i>
+                            <a class="parent-item" href="Dashboard.html">Home</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li class="active">
+                            ConsumerDetails
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--page title end-->
+<div class="container-fluid">
+    <!-- state start-->
+
+    <div class="row">
+        <div class=" col-sm-12">
+            <div class="card card-shadow mb-4">
+                <div class="card-header">
+                    <div class="card-title">
+                        ConsumerDetails
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-3">
+                            <div>
+                                <label>
+                                    <input type="search" class="form-control form-control-sm" placeholder="Number to search on " />
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-3">
+                            <label class="todo--label">
+                                <input type="radio" value="4" class="todo--input" checked="" name="radio" />
+                                <span class="todo--text bim-m7 bim-radio">Scoring ID</span>
+                            </label>
+                        </div>
+                        <div class="col-sm-12 col-md-3">
+                            <label class="todo--label">
+                                <input type="radio" value="4" class="todo--input" checked="" name="radio" />
+                                <span class="todo--text bim-m7 bim-radio">Legacy Consumer ID</span>
+                            </label>
+                        </div>
+                        <div class="col-sm-12 col-md-3">
+                            <label class="todo--label">
+                                <button type="submit" class="btn btn-primary float-right">View Results</button>
+                            </label>
+                        </div>
+
+                        <div class="col-sm-12 col-md-3">
+                            <div>
+                                <label><input type="search" class="form-control form-control-sm" placeholder="Name" /></label>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-3">
+                            <div>
+                                <label><input type="search" class="form-control form-control-sm" placeholder="Email" /></label>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-3">
+                            <div>
+                                <label><input type="search" class="form-control form-control-sm" placeholder="Legacy ID" /></label>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-3">
+                            <div>
+                                <label><input type="search" class="form-control form-control-sm" placeholder="Scoring ID" /></label>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-3">
+                            <div>
+                                <label><input type="search" class="form-control form-control-sm" placeholder="Partner ID" /></label>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-3">
+                            <div>
+                                <label><input type="search" class="form-control form-control-sm" placeholder="Create Date" /></label>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-3">
+                            <div>
+                                <label><input type="search" class="form-control form-control-sm" placeholder="Last Modified Date" /></label>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-3">
+                            <div><label>&nbsp;</label></div>
+                        </div>
+                        <div class="col-sm-12 col-md-3">
+                            <div>
+                                <label><input type="search" class="form-control form-control-sm" placeholder="HaltVendor" /></label>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-3">
+                            <label class="todo--label">
+                                <input type="checkbox" class="todo--input" checked="" name="checkbox" />
+                                <span class="todo--text bim-m7 bim-chcheckbox">HaltEnroll </span>
+                            </label>
+                        </div>
+                        <div class="col-sm-12 col-md-3">&nbsp;</div>
+                        <div class="col-sm-12 col-md-3">&nbsp;</div>
+
+                        <div class="col-sm-12 col-md-5">
+                            <div class="col-sm-12 divenrol">
+                                <h4 class="titledivenrol">Enrollment States</h4>
+                                <div class="row bim-brn">
+                                    <div class="col-sm-12 col-md-6 text-center">
+                                        <label class="todo--label">Registration</label>
+                                    </div>
+                                    <div class="col-sm-12 col-md-6 text-center">
+                                        <label class="todo--label text-success">Complete</label>
+                                    </div>
+                                </div>
+                                <div class="row bim-brn">
+                                    <div class="col-sm-12 col-md-6 text-center">
+                                        <label class="todo--label">Personal Information</label>
+                                    </div>
+                                    <div class="col-sm-12 col-md-6 text-center">
+                                        <label class="todo--label text-success">Complete</label>
+                                    </div>
+                                </div>
+                                <div class="row bim-brn">
+                                    <div class="col-sm-12 col-md-6 text-center">
+                                        <label class="todo--label">Bank Information </label>
+                                    </div>
+                                    <div class="col-sm-12 col-md-6 text-center">
+                                        <label class="todo--label error">Incomplete</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-5">
+                            <div class="col-sm-12 divenrol">
+                                <h4 class="titledivenrol">IAV Complete</h4>
+                                <div class="row bim-brn">
+                                    <div class="col-sm-12 col-md-6 text-center">
+                                        <label class="todo--label">IAV </label>
+                                    </div>
+                                    <div class="col-sm-12 col-md-6 text-center">
+                                        <label class="todo--label text-success">Complete</label>
+                                    </div>
+                                </div>
+                                <div class="row bim-brn">
+                                    <div class="col-sm-12 col-md-6 text-center">
+                                        <label class="todo--label">CDW</label>
+                                    </div>
+                                    <div class="col-sm-12 col-md-6 text-center">
+                                        <label class="todo--label text-success"></label>
+                                    </div>
+                                </div>
+                                <div class="row bim-brn">
+                                    <div class="col-sm-12 col-md-6 text-center">
+                                        <label class="todo--label">IAV Transition Last Known</label>
+                                    </div>
+                                    <div class="col-sm-12 col-md-6 text-center">
+                                        <label class="todo--label text-warning">Bank Selection</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 mt-30 offset-4">
+                            <div class="ep_1 " data-percent="60">
+                                <span>60</span>%
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="TotalScoreBreakDown-tab" data-toggle="tab" href="#TotalScoreBreakDown" role="tab" aria-controls="TotalScoreBreakDown" aria-selected="false">
+                                Total Score Break Down
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="ConsumerCodesScored-tab" data-toggle="tab" href="#ConsumerCodesScored" role="tab" aria-controls="ConsumerCodesScored" aria-selected="true">
+                                Consumer Codes Scored
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="MBRawData-tab" data-toggle="tab" href="#MBRawData" role="tab" aria-controls="MBRawData" aria-selected="false">
+                                MB Raw Data
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="SocureRawData-tab" data-toggle="tab" href="#SocureRawData" role="tab" aria-controls="SocureRawData" aria-selected="false">
+                                Socure Raw Data
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="PlaidIdentityRawData-tab" data-toggle="tab" href="#PlaidIdentityRawData" role="tab" aria-controls="PlaidIdentityRawData" aria-selected="false">
+                                Plaid Identity Raw Data
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="PlaidBalanceRawData-tab" data-toggle="tab" href="#PlaidBalanceRawData" role="tab" aria-controls="PlaidBalanceRawData" aria-selected="false">
+                                Plaid Balance Raw Data
+                            </a>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div class="tab-pane fade show active" id="TotalScoreBreakDown" role="tabpanel" aria-labelledby="TotalScoreBreakDown-tab">
+                            Total Score Break Down
+                        </div>
+                        <div class="tab-pane fade" id="ConsumerCodesScored" role="tabpanel" aria-labelledby="ConsumerCodesScored-tab">
+                            Consumer Codes Scored
+                        </div>
+                        <div class="tab-pane fade" id="MBRawData" role="tabpanel" aria-labelledby="MBRawData-tab">
+                            MB Raw Data
+                        </div>
+                        <div class="tab-pane fade" id="SocureRawData" role="tabpanel" aria-labelledby="SocureRawData-tab">
+                            Socure Raw Data
+                        </div>
+                        <div class="tab-pane fade" id="PlaidIdentityRawData" role="tabpanel" aria-labelledby="PlaidIdentityRawData-tab">
+                            Plaid Identity Raw Data
+                        </div>
+                        <div class="tab-pane fade" id="PlaidBalanceRawData" role="tabpanel" aria-labelledby="PlaidBalanceRawData-tab">
+                            Plaid Balance Raw Data
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- state end-->
+</div>
+<!-- Modal starts -->
+@*<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Consumer Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">ScoringID</label><label class="col-sm-5 text-left fw-bold">4286</label></div>
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">ConsumerName</label><label class="col-sm-6 text-left fw-bold">Alberta Charleson</label></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">ConsumerEmail</label><label class="col-sm-5 text-left fw-bold">dhana0988015@hepgui.com</label></div>
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">ConsumerLegacyID</label><label class="col-sm-5 text-left fw-bold">110852</label></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">EnrollmentStopped</label><label class="col-sm-5 text-left fw-bold">False</label></div>
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">PartnerID</label><label class="col-sm-5 text-left fw-bold">127n</label></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">Address1</label><label class="col-sm-5 text-left fw-bold">2493 Leisure Lane</label></div>
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">Address2</label><label class="col-sm-5 text-left fw-bold">2493 Leisure Lane</label></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">EnrollmentStopped</label><label class="col-sm-5 text-left fw-bold">False</label></div>
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">PartnerID</label><label class="col-sm-5 text-left fw-bold">127</label></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">ApartmentNumber</label><label class="col-sm-5 text-left fw-bold">55</label></div>
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">City</label><label class="col-sm-5 text-left fw-bold">San Matias</label></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">PoBox</label><label class="col-sm-5 text-left fw-bold">92612</label></div>
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">StateName</label><label class="col-sm-5 text-left fw-bold">California</label></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">StateAbbreviation</label><label class="col-sm-5 text-left fw-bold">CA</label></div>
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">ZipCode</label><label class="col-sm-5 text-left fw-bold">93405</label></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">FirstName</label><label class="col-sm-5 text-left fw-bold">Alberta</label></div>
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">LastName</label><label class="col-sm-5 text-left fw-bold">Charleson</label></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">Gender</label><label class="col-sm-5 text-left fw-bold">Male</label></div>
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">DOB</label><label class="col-sm-5 text-left fw-bold">04/12/1987</label></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">PhoneNumber</label><label class="col-sm-5 text-left fw-bold">7637737396</label></div>
+                            <div class="col-sm-6"><label class="col-sm-5 text-right">MobileNumber</label><label class="col-sm-5 text-left fw-bold">9980079627</label></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success">Print</button>
+                    <button type="button" class="btn btn-light">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>*@
+
+
+
+<!-- Modal Ends -->
+<!--<script>
+    $(document).ready(function() {
+        // Setup - add a text input to each footer cell
+        $('#detailedTable thead th').each( function () {
+            var title = $('#detailedTable tfoot th').eq( $(this).index() ).text();
+            var title = $(this).text();
+            $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
+        } );
+
+        // DataTable
+        var table = $('#detailedTable').DataTable();
+
+        // Apply the search
+        table.columns().eq( 0 ).each( function ( colIdx ) {
+            $( 'input', table.column( colIdx ).header() ).on( 'keyup change', function () {
+                table
+                    .column( colIdx )
+                    .search( this.value )
+                    .draw();
+            } );
+        } );
+    } );
+
+</script>-->

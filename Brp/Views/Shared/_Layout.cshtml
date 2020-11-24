@@ -274,14 +274,14 @@
             //    "searching": false,
             //});
             // Setup - add a text input to each footer cell
-            $('#detailedTable thead td').each(function () {
+            $('.BimTable thead td').each(function () {
                 /*var title = $('#detailedTable thead th').eq( $(this).index() ).text();*/
                 var title = $(this).text();
                 $(this).html('<input type="text" placeholder="Search" />');
                 //$(this).html('<input type="text" placeholder="Search ' + title + '" />');
             });
             // DataTable
-            var table = $('#detailedTable').DataTable({
+            var table = $('.BimTable').DataTable({
                 //"lengthChange": false,
                 //"searching": false,
             });

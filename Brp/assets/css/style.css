@@ -5145,3 +5145,45 @@ td .todo--text::before {
     font-size: 20px;
     font-weight: 500;
 }
+
+table thead th,
+table thead td,
+table tbody td {
+    width: 1% !important;
+}
+.nav-tabs .nav-item {
+    border-top: 2px solid #1269db;
+    border-radius: 5px;
+}
+
+.nav-tabs .nav-item a.active {
+    color: #1269db;
+}
+.divenrol {
+    border: 2px solid #007bff;
+    border-radius: 3px;
+}
+.titledivenrol {
+    border-bottom: 1px solid #007bff;
+    padding-bottom: 10px;
+    margin-left: -15px;
+    margin-right: -15px;
+    padding-left: 15px;
+}
+.bim-brn {
+    border: none !important;
+}
+.bim-m7{
+    margin:7px;
+}
+.todo--input:checked + .bim-chcheckbox,
+.todo--input:checked + .bim-radio {
+    text-decoration: none;
+}
+.bim-radio,
+.bim-chcheckbox{
+    padding-left: 25px;
+}
+.bim-radio:after, .bim-radio:before {
+    border-radius: 10px;
+}
