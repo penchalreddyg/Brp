@@ -5176,19 +5176,25 @@ table tbody td {
 .bim-m7{
     margin:7px;
 }
+.bim-tbm7 {
+    margin: 7px 0;
+}
 .todo--input:checked + .bim-chcheckbox,
 .todo--input:checked + .bim-radio {
     text-decoration: none;
 }
+.lbl_bim-chcheckbox {
+    padding-left: 0;
+}
 .bim-radio,
-.bim-chcheckbox{
+.bim-chcheckbox {
     padding-left: 25px;
 }
 .bim-radio:after, .bim-radio:before {
     border-radius: 10px;
 }
 .active-step {
-    border-color: #2b3f4f;
+    border-color: #2b3f4f !important;
 }
 
 .steps {

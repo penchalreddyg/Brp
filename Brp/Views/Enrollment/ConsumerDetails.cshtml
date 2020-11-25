@@ -103,15 +103,9 @@
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-3">
-                            <label class="todo--label">
-                                <input type="radio" value="4" class="todo--input" checked="" name="radio" />
-                                <span class="todo--text bim-m7 bim-radio">Scoring ID</span>
-                            </label>
-                        </div>
-                        <div class="col-sm-12 col-md-3">
-                            <label class="todo--label">
-                                <input type="radio" value="4" class="todo--input" checked="" name="radio" />
-                                <span class="todo--text bim-m7 bim-radio">Legacy Consumer ID</span>
+                            <label class="todo--label lbl_bim-chcheckbox">
+                                <input type="checkbox" class="todo--input" checked="" name="LegacyConsumerIDcheckbox" />
+                                <span class="todo--text bim-tbm7 bim-chcheckbox">Is Legacy Consumer ID</span>
                             </label>
                         </div>
                         <div class="col-sm-12 col-md-3">
@@ -119,40 +113,41 @@
                                 <button type="submit" class="btn btn-primary float-right">View Results</button>
                             </label>
                         </div>
-
+                    </div>
+                    <div class="row">
                         <div class="col-sm-12 col-md-3">
                             <div>
-                                <label><input type="search" class="form-control form-control-sm" placeholder="Name" /></label>
+                                <label>Name</label>
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-3">
                             <div>
-                                <label><input type="search" class="form-control form-control-sm" placeholder="Email" /></label>
+                                <label>Email</label>
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-3">
                             <div>
-                                <label><input type="search" class="form-control form-control-sm" placeholder="Legacy ID" /></label>
+                                <label>Legacy ID</label>
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-3">
                             <div>
-                                <label><input type="search" class="form-control form-control-sm" placeholder="Scoring ID" /></label>
+                                <label>Scoring ID</label>
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-3">
                             <div>
-                                <label><input type="search" class="form-control form-control-sm" placeholder="Partner ID" /></label>
+                                <label>Partner ID</label>
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-3">
                             <div>
-                                <label><input type="search" class="form-control form-control-sm" placeholder="Create Date" /></label>
+                                <label>Create Date</label>
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-3">
                             <div>
-                                <label><input type="search" class="form-control form-control-sm" placeholder="Last Modified Date" /></label>
+                                <label>Last Modified Date</label>
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-3">
@@ -160,13 +155,13 @@
                         </div>
                         <div class="col-sm-12 col-md-3">
                             <div>
-                                <label><input type="search" class="form-control form-control-sm" placeholder="HaltVendor" /></label>
+                                <label>Halt Vendor</label>
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-3">
-                            <label class="todo--label">
-                                <input type="checkbox" class="todo--input" checked="" name="checkbox" />
-                                <span class="todo--text bim-m7 bim-chcheckbox">HaltEnroll </span>
+                            <label class="todo--label lbl_bim-chcheckbox">
+                                <input type="checkbox" class="todo--input" checked="" name="HaltEnrollcheckbox" />
+                                <span class="todo--text bim-tbm7 bim-chcheckbox">Halt Enroll </span>
                             </label>
                         </div>
                         <div class="col-sm-12 col-md-3">&nbsp;</div>
@@ -177,26 +172,26 @@
                                 <h4 class="titledivenrol">Enrollment States</h4>
                                 <div class="row bim-brn">
                                     <div class="col-sm-12 col-md-6 text-center">
-                                        <label class="todo--label">Registration</label>
+                                        <label>Registration</label>
                                     </div>
                                     <div class="col-sm-12 col-md-6 text-center">
-                                        <label class="todo--label text-success">Complete</label>
-                                    </div>
-                                </div>
-                                <div class="row bim-brn">
-                                    <div class="col-sm-12 col-md-6 text-center">
-                                        <label class="todo--label">Personal Information</label>
-                                    </div>
-                                    <div class="col-sm-12 col-md-6 text-center">
-                                        <label class="todo--label text-success">Complete</label>
+                                        <label class="text-success">Complete</label>
                                     </div>
                                 </div>
                                 <div class="row bim-brn">
                                     <div class="col-sm-12 col-md-6 text-center">
-                                        <label class="todo--label">Bank Information </label>
+                                        <label>Personal Information</label>
                                     </div>
                                     <div class="col-sm-12 col-md-6 text-center">
-                                        <label class="todo--label error">Incomplete</label>
+                                        <label class="text-success">Complete</label>
+                                    </div>
+                                </div>
+                                <div class="row bim-brn">
+                                    <div class="col-sm-12 col-md-6 text-center">
+                                        <label>Bank Information </label>
+                                    </div>
+                                    <div class="col-sm-12 col-md-6 text-center">
+                                        <label class="error">Incomplete</label>
                                     </div>
                                 </div>
                             </div>
@@ -206,47 +201,47 @@
                                 <h4 class="titledivenrol">IAV Complete</h4>
                                 <div class="row bim-brn">
                                     <div class="col-sm-12 col-md-6 text-center">
-                                        <label class="todo--label">IAV </label>
+                                        <label>IAV </label>
                                     </div>
                                     <div class="col-sm-12 col-md-6 text-center">
-                                        <label class="todo--label text-success">Complete</label>
-                                    </div>
-                                </div>
-                                <div class="row bim-brn">
-                                    <div class="col-sm-12 col-md-6 text-center">
-                                        <label class="todo--label">CDW</label>
-                                    </div>
-                                    <div class="col-sm-12 col-md-6 text-center">
-                                        <label class="todo--label text-success"></label>
+                                        <label class="text-success">Complete</label>
                                     </div>
                                 </div>
                                 <div class="row bim-brn">
                                     <div class="col-sm-12 col-md-6 text-center">
-                                        <label class="todo--label">IAV Transition Last Known</label>
+                                        <label>CDW</label>
                                     </div>
                                     <div class="col-sm-12 col-md-6 text-center">
-                                        <label class="todo--label text-warning">Bank Selection</label>
+                                        <label class="text-success"></label>
+                                    </div>
+                                </div>
+                                <div class="row bim-brn">
+                                    <div class="col-sm-12 col-md-6 text-center">
+                                        <label>IAV Transition Last Known</label>
+                                    </div>
+                                    <div class="col-sm-12 col-md-6 text-center">
+                                        <label class="text-warning">Bank Selection</label>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!--<div class="row">
-                        <div class="col-md-4 mt-30 offset-4">
-                            <div class="ep_1 " data-percent="60">
-                                <span>60</span>%
-                            </div>
-                        </div>
-                    </div>-->
+        <div class="col-md-4 mt-30 offset-4">
+            <div class="ep_1 " data-percent="60">
+                <span>60</span>%
+            </div>
+        </div>
+    </div>-->
                     <div class="wizard-bread">
                         <div class="row">
-                            <div class="col-md-4 col-sm-4 active-step">
-                                <div class="steps">
+                            <div class="col-md-4 col-sm-4">
+                                <div class="steps active-step">
                                     <p class="step-number">Step 1</p>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-4">
-                                <div class="steps">
+                                <div class="steps active-step">
                                     <p class="step-number">Step 2</p>
                                 </div>
                             </div>
