@@ -5187,3 +5187,18 @@ table tbody td {
 .bim-radio:after, .bim-radio:before {
     border-radius: 10px;
 }
+.active-step {
+    border-color: #2b3f4f;
+}
+
+.steps {
+    text-align: center;
+    border-top: 10px solid #1269db;
+}
+
+.step-number {
+    margin-top: 10px;
+}
+.wizard-bread {
+    margin: 40px auto;
+}
