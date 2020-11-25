@@ -1,0 +1,295 @@
+﻿@using Newtonsoft.Json;
+
+@model Brp.Models.ConsumerResponse
+@{
+    ViewBag.Title = "ResponseCodes";
+}
+
+
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+
+@functions{
+    private DateTime DataFormat(string code)
+    {
+        string date = @"""" + code + @"""";
+        DateTime dt = JsonConvert.DeserializeObject<DateTime>(date);
+        return dt;
+    }
+}
+
+<script>
+
+    $(document).ready(function () {
+        $('#detailedTable tr td').filter(function () {
+            return $(this).text().indexOf('True') === 0;
+        }).closest('td').html('<i class="fa fa-check has-success trf" data-toggle="tooltip" data-placement="right" title="" data-original-title="True"></i>');
+
+        $('#detailedTable tr  td').filter(function () {
+            return $(this).text().indexOf('False') === 0;
+        }).closest('td').html('<i class="fa fa-times error trf" data-toggle="tooltip" data-placement="left" title="" data-original-title="False"></i>');
+
+        $(".consumer_link").click(function () {
+            $('#myModal').modal('hide');
+               $('#myModal').modal('show');
+               var legacyConsumerId = $(this).closest("tr").find("td").eq(2).html();
+                 var id = $(this).attr("data_id");
+            $.ajax({
+                url: '@Url.Action("GetConsumerProfile", "Enrollment")',
+                type: "post",
+                dataType: "html",
+                contentType: 'application/json; charset=utf-8',
+                data: JSON.stringify({ consumerId: legacyConsumerId }), //add parameter
+                success: function (data) {
+                    $("#myModal").append(data);
+                },
+                error: function () {
+                    alert("error");
+                }
+            });
+
+             });
+    });
+
+
+</script>
+<!--page title start-->
+<div class="page-heading">
+    <div class="container-fluid">
+        <div class="row d-flex align-items-center">
+            <div class="col-md-6">
+                <div class="page-breadcrumb">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="col-md-6 justify-content-md-end d-flex">
+                <div class="breadcrumb_nav">
+                    <ol class="breadcrumb">
+                        <li>
+                            <i class="fa fa-home"></i>
+                            <a class="parent-item" href="#">Home</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li class="active">
+                            Response Codes Management
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--page title end-->
+<div class="container-fluid">
+    <!-- state start-->
+    <div class="row">
+        <div class=" col-sm-12">
+            <div class="card card-shadow mb-4">
+                <div class="card-header">
+                    <div class="card-title">
+                        Response Codes Management
+                        <button type="submit" class="btn btn-primary float-right"  data-toggle="modal" data-target="#exampleModal2" data-original-title="Add"><i class="fa fa-plus"></i>&nbsp;Add</button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <table id="detailedTable" class="BimTable table-responsive table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Vendra Name</th>
+                                <th>Code</th>
+                                <th>Description</th>
+                                <th>Value</th>
+                                <th>Active/IsValid</th>
+                                <th>Create Date</th>
+                                <th>Create By</th>
+                                <th data-toggle="modal" data-target="#exampleModal" data-original-title="Edit">Update By</th>
+                                <th data-toggle="modal" data-target="#exampleModal1" data-original-title="Edit">Update Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        @if (Model.ConsumerStates != null)
+                        {
+                            foreach (var item in Model.ConsumerStates)
+                            {
+                                @*<tr class="consumer_link">*@
+                                <tr class="consumer_link">
+                                    <td>@item.ConsumerName</td>
+                                    <td>
+                                        <a href="#" title="" data-toggle="modal" data-target="#exampleModal" data-original-title="Edit Variant"> @item.ConsumerId</a>
+                                    </td>
+                                    <td>@item.PartnerId </td>
+                                    <td>@item.LegacyConsumerID </td>
+                                    <td>@item.Registered </td>
+                                    <td>@DataFormat(item.LastUpdate)</td>
+                                    <td>@item.ConsumerName</td>
+                                    <td>@item.ConsumerName</td>
+                                    <td>@DataFormat(item.LastUpdate)</td>
+                                    <td><i class="fa fa-eye text-primary bim-fs-20" data-toggle="tooltip" data-placement="top" title="" data-original-title="View"></i> / <i class="fa fa-pencil-square-o text-warning bim-fs-20" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Edit"></i> / <i class="fa fa-trash text-danger bim-fs-20" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Delete"></i></td>
+                                </tr>
+                            }
+                        }
+                        <!--<tfoot>
+                            <tr>
+                                <th>Name</th>
+                                <th>Position</th>
+                                <th>Office</th>
+                                <th>Age</th>
+                                <th>Start date</th>
+                                <th>Salary</th>
+                            </tr>
+                        </tfoot>-->
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- state end-->
+</div>
+<!-- Modal starts -->
+<!-- Modal starts -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">View Details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-6"><label class="col-sm-5 text-right bim-vat">Vendra Name</label><label class="col-sm-7 text-left fw-bold">Alberta Charleson</label></div>
+                        <div class="col-sm-6"><label class="col-sm-5 text-right bim-vat">Code</label><label class="col-sm-7 text-left fw-bold">4286</label></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6"><label class="col-sm-5 text-right bim-vat">Value</label><label class="col-sm-7 text-left fw-bold">110852</label></div>
+                        <div class="col-sm-6"><label class="col-sm-5 text-right bim-vat">Active/IsValid</label><label class="col-sm-7 text-left fw-bold text-success">Active</label></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6"><label class="col-sm-5 text-right bim-vat">Update Date</label><label class="col-sm-7 text-left fw-bold">19-11-2020 02:18:14 AM</label></div>
+                        <div class="col-sm-6"><label class="col-sm-5 text-right bim-vat">Create Date</label><label class="col-sm-7 text-left fw-bold">24-11-2020 05:18:14 AM</label></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6"><label class="col-sm-5 text-right bim-vat">Create By</label><label class="col-sm-7 text-left fw-bold">Albert Charleson</label></div>
+                        <div class="col-sm-6"><label class="col-sm-5 text-right bim-vat">Update By</label><label class="col-sm-7 text-left fw-bold">Albert Charleson</label></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6"><label class="col-sm-5 text-right bim-vat">Description</label><label class="col-sm-7 text-left fw-bold">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</label></div>
+                        <div class="col-sm-6"><label class="col-sm-5 text-right bim-vat">Notes</label><label class="col-sm-7 text-left fw-bold">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</label></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal starts -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div for="ddlIsValid">IsValid<span class="text-danger">*</span></div>
+                            <select class="form-control" name="ddlIsValid" id="ddlIsValid" required="">
+                                <option value="1">No</option>
+                                <option value="2">Yes</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div for="txtScoringValue">BIM Scoring Value<span class="text-danger">*</span></div>
+                            <input type="text" class="form-control" name="txtScoringValue" id="txtScoringValue" required="" placeholder="BIM Scoring Value">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div for="txtAPIDescrip">API Code Description<span class="text-danger">*</span></div>
+                            <textarea class="form-control" name="txtAPIDescrip" id="txtAPIDescrip" required="" placeholder="API Code Description"></textarea>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div for="txtNotes">Internal Notes<span class="text-danger">*</span></div>
+                            <textarea class="form-control" name="txtNotes" id="txtNotes" required="" placeholder="Internal Notes"></textarea>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-secondary">Cancel</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal starts -->
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div for="ddlIsName">Vendra Name<span class="text-danger">*</span></div>
+                            <input type="text" class="form-control" name="ddlIsName" id="ddlIsName" required="" placeholder="Vendra Name">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div for="txtCode">Code<span class="text-danger">*</span></div>
+                            <input type="text" class="form-control" name="txtCode" id="txtCode" required="" placeholder="Code">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div for="txtValue">Value<span class="text-danger">*</span></div>
+                            <input type="text" class="form-control" name="txtValue" id="txtValue" required="" placeholder="Value">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div for="ddlIsValid">IsValid<span class="text-danger">*</span></div>
+                            <select class="form-control" name="ddlIsValid" id="ddlIsValid" required="">
+                                <option value="1">No</option>
+                                <option value="2">Yes</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div for="txtCreateBy">Created By<span class="text-danger">*</span></div>
+                            <input type="text" class="form-control" name="txtCreateBy" id="txtCreateBy" required="" placeholder="Created By">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div for="txtUpdateBy">Updated By<span class="text-danger">*</span></div>
+                            <input type="text" class="form-control" name="txtUpdateBy" id="txtUpdateBy" required="" placeholder="Updated By">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div for="txtAPIDescrip">API Code Description<span class="text-danger">*</span></div>
+                            <textarea class="form-control" name="txtAPIDescrip" id="txtAPIDescrip" required="" placeholder="API Code Description"></textarea>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div for="txtNotes">Internal Notes<span class="text-danger">*</span></div>
+                            <textarea class="form-control" name="txtNotes" id="txtNotes" required="" placeholder="Internal Notes"></textarea>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-secondary">Cancel</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>

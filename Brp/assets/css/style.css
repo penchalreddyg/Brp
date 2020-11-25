@@ -5201,7 +5201,9 @@ table tbody td {
     text-align: center;
     border-top: 10px solid #1269db;
 }
-
+.tab-pane{
+    margin:10px;
+}
 .step-number {
     margin-top: 10px;
 }

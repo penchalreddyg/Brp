@@ -1675,3 +1675,9 @@ Author URI: http://connexinfo.com
 .dataTables_length, .dataTables_filter{
     display:none;
 }*/
+.bim-fs-20 {
+    font-size: 20px;
+}
+.bim-vat {
+    vertical-align: top;
+}
