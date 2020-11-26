@@ -87,65 +87,33 @@
                 <div class="card-header">
                     <div class="card-title">
                         Response Codes Management
-                        <button type="submit" class="btn btn-primary float-right"  data-toggle="modal" data-target="#exampleModal2" data-original-title="Add"><i class="fa fa-plus"></i>&nbsp;Add</button>
+                        <button type="submit" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModal2" data-original-title="Add"><i class="fa fa-plus"></i>&nbsp;Add</button>
                     </div>
                 </div>
                 <div class="card-body">
-                    <table id="detailedTable" class="BimTable table-responsive table table-bordered table-striped">
-                        <thead>
-                            <tr>
-                                <th>Vendra Name</th>
-                                <th>Code</th>
-                                <th>Description</th>
-                                <th>Value</th>
-                                <th>Active/IsValid</th>
-                                <th>Create Date</th>
-                                <th>Create By</th>
-                                <th data-toggle="modal" data-target="#exampleModal" data-original-title="Edit">Update By</th>
-                                <th data-toggle="modal" data-target="#exampleModal1" data-original-title="Edit">Update Date</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        @if (Model.ConsumerStates != null)
-                        {
-                            foreach (var item in Model.ConsumerStates)
-                            {
-                                @*<tr class="consumer_link">*@
-                                <tr class="consumer_link">
-                                    <td>@item.ConsumerName</td>
-                                    <td>
-                                        <a href="#" title="" data-toggle="modal" data-target="#exampleModal" data-original-title="Edit Variant"> @item.ConsumerId</a>
-                                    </td>
-                                    <td>@item.PartnerId </td>
-                                    <td>@item.LegacyConsumerID </td>
-                                    <td>@item.Registered </td>
-                                    <td>@DataFormat(item.LastUpdate)</td>
-                                    <td>@item.ConsumerName</td>
-                                    <td>@item.ConsumerName</td>
-                                    <td>@DataFormat(item.LastUpdate)</td>
-                                    <td><i class="fa fa-eye text-primary bim-fs-20" data-toggle="tooltip" data-placement="top" title="" data-original-title="View"></i> / <i class="fa fa-pencil-square-o text-warning bim-fs-20" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Edit"></i> / <i class="fa fa-trash text-danger bim-fs-20" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Delete"></i></td>
-                                </tr>
-                            }
-                        }
-                        <!--<tfoot>
-                            <tr>
-                                <th>Name</th>
-                                <th>Position</th>
-                                <th>Office</th>
-                                <th>Age</th>
-                                <th>Start date</th>
-                                <th>Salary</th>
-                            </tr>
-                        </tfoot>-->
-                    </table>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6">
+                            &nbsp;
+                        </div>
+                        <div class="col-sm-12 col-md-3">
+                            <div class="dataTables_filter">
+                                <input type="search" class="form-control form-control-sm" placeholder="Response Code" aria-controls="detailedTable">
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-3">
+                            <div class="dataTables_filter">
+                                <input type="search" class="form-control form-control-sm" placeholder="Value" aria-controls="detailedTable">
+                            </div>
+                        </div>
+                    </div>
+                    <!--Place Tabel-->
                 </div>
             </div>
         </div>
     </div>
     <!-- state end-->
 </div>
-<!-- Modal starts -->
-<!-- Modal starts -->
+<!-- View Modal starts -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -158,7 +126,7 @@
             <div class="modal-body">
                 <div class="col-sm-12">
                     <div class="row">
-                        <div class="col-sm-6"><label class="col-sm-5 text-right bim-vat">Vendra Name</label><label class="col-sm-7 text-left fw-bold">Alberta Charleson</label></div>
+                        <div class="col-sm-6"><label class="col-sm-5 text-right bim-vat">Vendor Name</label><label class="col-sm-7 text-left fw-bold">Alberta Charleson</label></div>
                         <div class="col-sm-6"><label class="col-sm-5 text-right bim-vat">Code</label><label class="col-sm-7 text-left fw-bold">4286</label></div>
                     </div>
                     <div class="row">
@@ -183,12 +151,12 @@
     </div>
 </div>
 
-<!-- Modal starts -->
+<!-- Edit Modal starts -->
 <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Edit</h5>
+                <h5 class="modal-title" id="exampleModalLabel1">Edit</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -228,12 +196,12 @@
         </div>
     </div>
 </div>
-<!-- Modal starts -->
+<!--Add Modal starts -->
 <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Add</h5>
+                <h5 class="modal-title" id="exampleModalLabel2">Add</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -242,7 +210,7 @@
                 <div class="col-sm-12">
                     <div class="row">
                         <div class="col-md-6 mb-3">
-                            <div for="ddlIsName">Vendra Name<span class="text-danger">*</span></div>
+                            <div for="ddlIsName">Vendor Name<span class="text-danger">*</span></div>
                             <input type="text" class="form-control" name="ddlIsName" id="ddlIsName" required="" placeholder="Vendra Name">
                         </div>
                         <div class="col-md-6 mb-3">
@@ -289,6 +257,24 @@
             <div class="modal-footer">
                 <button type="submit" class="btn btn-secondary">Cancel</button>
                 <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Modal starts -->
+<div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel3" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel3">Delete</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-secondary">NO</button>
+                <button type="submit" class="btn btn-primary">Yes</button>
             </div>
         </div>
     </div>
